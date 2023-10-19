@@ -2,10 +2,14 @@ import 'dart:async';
 
 import 'package:becca_supir/main.dart';
 import 'package:becca_supir/src/core/config/constant.dart';
+import 'package:becca_supir/src/domain/repository/doRepository.dart';
+import 'package:becca_supir/src/presentation/blocs/do/bloc/delivery_order_bloc.dart';
 import 'package:becca_supir/src/presentation/views/home/home_page.dart';
+import 'package:becca_supir/src/presentation/views/list_konfirm/list_confirm_view.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/config/theme_colors.dart';
@@ -41,7 +45,6 @@ class _DashboardPageState extends State<DashboardPage> {
       isSelectedStream = event;
       changePageDirectly(event);
     });
-
   }
 
   @override
@@ -56,9 +59,16 @@ class _DashboardPageState extends State<DashboardPage> {
     return PageView(
       controller: pageController,
       physics: const NeverScrollableScrollPhysics(),
-      children: const [
+      children: [
         HomePage(),
-        HomePage(),
+        BlocProvider(
+          create: (context) {
+            return DeliveryOrderBloc(
+              orderRepository: context.read(),
+            );
+          },
+          child: ListKonfirmView(),
+        ),
         HomePage(),
         HomePage(),
       ],
@@ -71,7 +81,7 @@ class _DashboardPageState extends State<DashboardPage> {
       onTap: (page) {
         pageSelectController.add(page);
       },
-      defaultSelected: isSelectedStream?? 0,
+      defaultSelected: isSelectedStream ?? 0,
       height: kToolbarHeight,
       backgroundColor: Colors.white,
       selectedItemColor: themeOrange,

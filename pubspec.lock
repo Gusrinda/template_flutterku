@@ -590,6 +590,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_mdi_icons:
+    dependency: "direct main"
+    description:
+      name: flutter_mdi_icons
+      sha256: "5af0d524e95fed697806f1bf94fea4c26d321788fbcfdd4dddb8a4fd26560683"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.1"
   flutter_multi_formatter:
     dependency: "direct main"
     description:

@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:becca_supir/src/core/config/app_route.dart';
+import 'package:becca_supir/src/data/repository/do_repository_impl.dart';
 import 'package:becca_supir/src/data/source/api_service.dart';
+import 'package:becca_supir/src/domain/repository/doRepository.dart';
 import 'package:becca_supir/src/presentation/blocs/auth/auth_bloc.dart';
 import 'package:becca_supir/src/core/settings/settings_controller.dart';
 import 'package:dio/dio.dart';
@@ -20,11 +22,9 @@ import 'package:provider/provider.dart';
 import 'src/presentation/app.dart';
 import 'src/core/settings/settings_service.dart';
 
-
 StreamController<int> pageSelectController = StreamController<int>();
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
 
   // setup hydrated bloc storage
@@ -68,12 +68,17 @@ void main() async {
       providers: [
         ChangeNotifierProvider.value(value: settingsController),
       ],
-      child: BlocProvider(
-        create: (context) => AuthBloc(),
-        child: MyApp(),
+      child: MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider<DoRepository>(
+            create: (context) => DoRepositoryImpl(apiService),
+          ),
+        ],
+        child: BlocProvider(
+          create: (context) => AuthBloc(),
+          child: MyApp(),
+        ),
       ),
     ),
   );
 }
-
-
