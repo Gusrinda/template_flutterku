@@ -1,0 +1,6 @@
+package com.gusrinda.template
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
