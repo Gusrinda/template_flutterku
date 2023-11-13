@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:becca_supir/src/core/config/app_route.dart';
 import 'package:becca_supir/src/data/repository/do_repository_impl.dart';
+import 'package:becca_supir/src/data/repository/product_repository_impl.dart';
 import 'package:becca_supir/src/data/source/api_service.dart';
 import 'package:becca_supir/src/domain/repository/doRepository.dart';
+import 'package:becca_supir/src/domain/repository/productRepository.dart';
 import 'package:becca_supir/src/presentation/blocs/auth/auth_bloc.dart';
 import 'package:becca_supir/src/core/settings/settings_controller.dart';
 import 'package:dio/dio.dart';
@@ -62,6 +64,7 @@ void main() async {
   }
 
   final apiService = ApiService(dio);
+  final apiServiceProducts = ApiServiceProducts(dio);
 
   runApp(
     MultiProvider(
@@ -72,6 +75,9 @@ void main() async {
         providers: [
           RepositoryProvider<DoRepository>(
             create: (context) => DoRepositoryImpl(apiService),
+          ),
+          RepositoryProvider<ProductRepository>(
+            create: (context) => ProductRepositoryImpl(apiServiceProducts),
           ),
         ],
         child: BlocProvider(

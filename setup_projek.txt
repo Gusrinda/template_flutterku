@@ -1,0 +1,71 @@
+SETUP PROJEK FLUTTER versi saya : 
+
+Login
+View
+- ui Login ( input username & email )
+Controller
+- logika Login ( ngambil url )
+Model
+- user login
+
+- Arsitektur
+    - src
+        - core ( tempat core data , yang biasanya tidak ganti2 )
+            - routing ( routing aplikasi , setting navigasi dsb )
+            - tema 
+            - assets gen
+            - utils ( utilisasi di projek, format uang, format nomor kartu cc, dsb )
+        - data
+            - models ( data kelas models, biasanya response kelas, model untuk user, produk, dsb )
+            - repository_impl ( implementasi repository, kode menjalankan logika pemanggilan api / pengambilan data dari repository ) 
+            - source ( tempat menyimpan url2 pengambilan data )
+        - domain
+            - repository ( kumpulan event pemanggilan api / pengambilan data , biasanya dipanggil service)
+        - presentation
+            - views ( kumpulan halaman2 aplikasi )
+            - widgets ( kumpulan widget2 umum yang biasanya digunakan banyak halaman )
+            - bloc ( kumpulan state management halaman aplikasi ) -> BLOC ->  MVC
+
+            blocprovider -> menyediakan model 
+            bloclistener -> mendengarakan perubahan state
+            bloc -> controller
+            blocbuilder ->  view
+
+
+
+
+
+- Contoh pembuatan suatu fungsi di suatu halaman : 
+    - Ingin mengambil suatu list produk dari sebuah url 
+    contoh : 
+        - url : http://118.99.67.130:83/becca_api/TisWebApi/list_warehouse
+        - response : 
+                {
+                "msg": "",
+                "tbl": [
+                    {
+                        "key": 2202,
+                        "value": "G.MALANG"
+                    },
+                    {
+                        "key": 2205,
+                        "value": "G.KEDIRI"
+                    },
+                    {
+                        "key": 2201,
+                        "value": "G.SUKODONO"
+                            }
+                    ]
+                }
+
+     Yang dilakukan : 
+     1. Buat halaman untuk pengambilan data . sudah
+     2. Tambahakan routename dan tambahkan view ke routing . sudah
+     3. Buat BloC untuk persiapan pengambilan data -> ListWarehouseBloc . sudah
+     4. Membuat model kelas response terlebih dahulu, gunakan generator https://app.quicktype.io/ . sudah
+     5. Tambahkan api_service ke dalam struktur 'source' . sudah
+     6. buat repository -> 'produk_repository' lalu buat sebuah fungsi getWarehouse . sudah
+     7. buat implementasi dari produk repository -> 'produk_repository_impl' -> berikan logika pengambilan data dari getWarehouse . sudah
+     8. Pasang pengambilan data di bloc, buat state dan event untuk pengambilan data tsb .sudah
+     9. Berikan logika BLOCnya ketika loading / data terambil di halaman view  . sudah
+     10. done

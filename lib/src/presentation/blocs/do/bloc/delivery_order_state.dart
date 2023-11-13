@@ -8,3 +8,8 @@ class DeliveryOrderState with _$DeliveryOrderState {
       List<ListSelectDO>? daftarSelectDO,
       String? error}) = _DeliveryOrderState;
 }
+
+// state initials
+// state LoadingPageStatus
+// state success
+// state error
