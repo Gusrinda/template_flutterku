@@ -1,6 +1,6 @@
-# becca_sales
+# Template Flutter
 
-Projek Sales Untuk Becca
+Projek Template Flutter
 
 ## Getting Started
 
