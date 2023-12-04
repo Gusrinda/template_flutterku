@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:becca_supir/src/data/models/response/login/response_login.dart';
+import 'package:becca_supir/src/domain/repository/user_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,7 +15,10 @@ part 'login_state.dart';
 part 'login_bloc.freezed.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(LoginState(
+  final UserRepository userRepository;
+
+  LoginBloc({required this.userRepository})
+      : super(LoginState(
           fieldUsername: FormTextInput.pure(),
           fieldPassword: FormTextInput.pure(),
         )) {
@@ -22,7 +27,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<TogglePasswordObscured>(_onTogglePasswordObscured);
     on<SubmitLogin>(_onSubmitLogin);
   }
-
 
   FutureOr<void> _onOnEmailChanged(
       OnUsernameChanged event, Emitter<LoginState> emit) async {
@@ -53,7 +57,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       SubmitLogin event, Emitter<LoginState> emit) async {
     debugPrint("INI MASUK SUBMIT LOGIN !");
 
-    debugPrint("1");
     final fieldUsername = state.fieldUsername.pure
         ? state.fieldUsername.toDirty(fromTextController: true)
         : state.fieldUsername;
@@ -61,7 +64,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         ? state.fieldPassword.toDirty(fromTextController: true)
         : state.fieldPassword;
     final status = Formz.validate([fieldUsername, fieldPassword]);
-    debugPrint("2 : $status");
+
     if (!status.isValid) {
       emit(state.copyWith(
         status: status,
@@ -71,45 +74,21 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       return;
     }
 
-    debugPrint("3");
     emit(state.copyWith(error: null, status: FormzStatus.submissionInProgress));
     try {
-      debugPrint("4");
       final username = state.fieldUsername.value;
       final password = state.fieldPassword.value;
 
-      final loginUser = "Success";
-      // final loginUser = await userRepository.login(
-      //   username: username,
-      //   password: password,
-      // );
-
-      debugPrint("5");
-
-      // if (!loginUser.success) {
-      //   if (loginUser.message!.contains('Verify')) {
-      //     emit(state.copyWith(
-      //       error: loginUser.message,
-      //       status: FormzStatus.submissionSuccess,
-      //     ));
-      //   } else {
-      //     emit(state.copyWith(
-      //       error: loginUser.message,
-      //       status: FormzStatus.submissionFailure,
-      //     ));
-      //   }
-      //
-      //   return;
-      // }
-
-      debugPrint("6");
+      final loginUser = await userRepository.login(
+        username: username,
+        password: password,
+      );
 
       emit(state.copyWith(
         loginUser: loginUser,
         status: FormzStatus.submissionSuccess,
       ));
     } on ApiException catch (e) {
-      debugPrint("7");
       emit(state.copyWith(
         error: e.message,
         status: FormzStatus.submissionFailure,

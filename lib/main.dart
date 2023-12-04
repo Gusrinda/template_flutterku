@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:becca_supir/src/core/config/app_route.dart';
-import 'package:becca_supir/src/data/repository/do_repository_impl.dart';
-import 'package:becca_supir/src/data/repository/product_repository_impl.dart';
+import 'package:becca_supir/src/data/repository/general_repository_impl.dart';
+import 'package:becca_supir/src/data/repository/user_repository_impl.dart';
 import 'package:becca_supir/src/data/source/api_service.dart';
-import 'package:becca_supir/src/domain/repository/doRepository.dart';
-import 'package:becca_supir/src/domain/repository/productRepository.dart';
+import 'package:becca_supir/src/domain/repository/general_repository.dart';
+
+import 'package:becca_supir/src/domain/repository/user_repository.dart';
 import 'package:becca_supir/src/presentation/blocs/auth/auth_bloc.dart';
 import 'package:becca_supir/src/core/settings/settings_controller.dart';
 import 'package:dio/dio.dart';
@@ -64,7 +65,6 @@ void main() async {
   }
 
   final apiService = ApiService(dio);
-  final apiServiceProducts = ApiServiceProducts(dio);
 
   runApp(
     MultiProvider(
@@ -73,11 +73,11 @@ void main() async {
       ],
       child: MultiRepositoryProvider(
         providers: [
-          RepositoryProvider<DoRepository>(
-            create: (context) => DoRepositoryImpl(apiService),
+          RepositoryProvider<UserRepository>(
+            create: (context) => UserRepositoryImpl(apiService),
           ),
-          RepositoryProvider<ProductRepository>(
-            create: (context) => ProductRepositoryImpl(apiServiceProducts),
+          RepositoryProvider<GeneralRepository>(
+            create: (context) => GeneralRepositoryImpl(apiService),
           ),
         ],
         child: BlocProvider(

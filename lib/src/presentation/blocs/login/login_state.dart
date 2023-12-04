@@ -7,7 +7,7 @@ class LoginState with _$LoginState {
     required FormTextInput fieldUsername,
     required FormTextInput fieldPassword,
     @Default(true) bool obscurePassword,
-    String? loginUser,
+    ResponseLogin? loginUser,
     String? error,
   }) = _LoginState;
 }

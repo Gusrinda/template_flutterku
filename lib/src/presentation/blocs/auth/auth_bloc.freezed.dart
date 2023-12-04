@@ -22,11 +22,9 @@ AuthenticationState _$AuthenticationStateFromJson(Map<String, dynamic> json) {
 mixin _$AuthenticationState {
   AuthenticationStatus get status => throw _privateConstructorUsedError;
   PageReady get statusPage => throw _privateConstructorUsedError;
-  String? get loginUser => throw _privateConstructorUsedError;
+  DataUserLogin? get loginUser => throw _privateConstructorUsedError;
+  String? get tokenUser => throw _privateConstructorUsedError;
   String? get userModel => throw _privateConstructorUsedError;
-  List<String>? get daftarArea => throw _privateConstructorUsedError;
-  List<String>? get daftarAreaID => throw _privateConstructorUsedError;
-  String? get userId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,11 +41,11 @@ abstract class $AuthenticationStateCopyWith<$Res> {
   $Res call(
       {AuthenticationStatus status,
       PageReady statusPage,
-      String? loginUser,
-      String? userModel,
-      List<String>? daftarArea,
-      List<String>? daftarAreaID,
-      String? userId});
+      DataUserLogin? loginUser,
+      String? tokenUser,
+      String? userModel});
+
+  $DataUserLoginCopyWith<$Res>? get loginUser;
 }
 
 /// @nodoc
@@ -66,10 +64,8 @@ class _$AuthenticationStateCopyWithImpl<$Res, $Val extends AuthenticationState>
     Object? status = null,
     Object? statusPage = null,
     Object? loginUser = freezed,
+    Object? tokenUser = freezed,
     Object? userModel = freezed,
-    Object? daftarArea = freezed,
-    Object? daftarAreaID = freezed,
-    Object? userId = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -83,24 +79,28 @@ class _$AuthenticationStateCopyWithImpl<$Res, $Val extends AuthenticationState>
       loginUser: freezed == loginUser
           ? _value.loginUser
           : loginUser // ignore: cast_nullable_to_non_nullable
+              as DataUserLogin?,
+      tokenUser: freezed == tokenUser
+          ? _value.tokenUser
+          : tokenUser // ignore: cast_nullable_to_non_nullable
               as String?,
       userModel: freezed == userModel
           ? _value.userModel
           : userModel // ignore: cast_nullable_to_non_nullable
               as String?,
-      daftarArea: freezed == daftarArea
-          ? _value.daftarArea
-          : daftarArea // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      daftarAreaID: freezed == daftarAreaID
-          ? _value.daftarAreaID
-          : daftarAreaID // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      userId: freezed == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DataUserLoginCopyWith<$Res>? get loginUser {
+    if (_value.loginUser == null) {
+      return null;
+    }
+
+    return $DataUserLoginCopyWith<$Res>(_value.loginUser!, (value) {
+      return _then(_value.copyWith(loginUser: value) as $Val);
+    });
   }
 }
 
@@ -115,11 +115,12 @@ abstract class _$$_AuthenticationStateCopyWith<$Res>
   $Res call(
       {AuthenticationStatus status,
       PageReady statusPage,
-      String? loginUser,
-      String? userModel,
-      List<String>? daftarArea,
-      List<String>? daftarAreaID,
-      String? userId});
+      DataUserLogin? loginUser,
+      String? tokenUser,
+      String? userModel});
+
+  @override
+  $DataUserLoginCopyWith<$Res>? get loginUser;
 }
 
 /// @nodoc
@@ -136,10 +137,8 @@ class __$$_AuthenticationStateCopyWithImpl<$Res>
     Object? status = null,
     Object? statusPage = null,
     Object? loginUser = freezed,
+    Object? tokenUser = freezed,
     Object? userModel = freezed,
-    Object? daftarArea = freezed,
-    Object? daftarAreaID = freezed,
-    Object? userId = freezed,
   }) {
     return _then(_$_AuthenticationState(
       status: null == status
@@ -153,22 +152,14 @@ class __$$_AuthenticationStateCopyWithImpl<$Res>
       loginUser: freezed == loginUser
           ? _value.loginUser
           : loginUser // ignore: cast_nullable_to_non_nullable
+              as DataUserLogin?,
+      tokenUser: freezed == tokenUser
+          ? _value.tokenUser
+          : tokenUser // ignore: cast_nullable_to_non_nullable
               as String?,
       userModel: freezed == userModel
           ? _value.userModel
           : userModel // ignore: cast_nullable_to_non_nullable
-              as String?,
-      daftarArea: freezed == daftarArea
-          ? _value._daftarArea
-          : daftarArea // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      daftarAreaID: freezed == daftarAreaID
-          ? _value._daftarAreaID
-          : daftarAreaID // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      userId: freezed == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -181,12 +172,8 @@ class _$_AuthenticationState implements _AuthenticationState {
       {this.status = AuthenticationStatus.unknown,
       this.statusPage = PageReady.notReady,
       this.loginUser,
-      this.userModel,
-      final List<String>? daftarArea,
-      final List<String>? daftarAreaID,
-      this.userId})
-      : _daftarArea = daftarArea,
-        _daftarAreaID = daftarAreaID;
+      this.tokenUser,
+      this.userModel});
 
   factory _$_AuthenticationState.fromJson(Map<String, dynamic> json) =>
       _$$_AuthenticationStateFromJson(json);
@@ -198,35 +185,15 @@ class _$_AuthenticationState implements _AuthenticationState {
   @JsonKey()
   final PageReady statusPage;
   @override
-  final String? loginUser;
+  final DataUserLogin? loginUser;
+  @override
+  final String? tokenUser;
   @override
   final String? userModel;
-  final List<String>? _daftarArea;
-  @override
-  List<String>? get daftarArea {
-    final value = _daftarArea;
-    if (value == null) return null;
-    if (_daftarArea is EqualUnmodifiableListView) return _daftarArea;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  final List<String>? _daftarAreaID;
-  @override
-  List<String>? get daftarAreaID {
-    final value = _daftarAreaID;
-    if (value == null) return null;
-    if (_daftarAreaID is EqualUnmodifiableListView) return _daftarAreaID;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  final String? userId;
 
   @override
   String toString() {
-    return 'AuthenticationState(status: $status, statusPage: $statusPage, loginUser: $loginUser, userModel: $userModel, daftarArea: $daftarArea, daftarAreaID: $daftarAreaID, userId: $userId)';
+    return 'AuthenticationState(status: $status, statusPage: $statusPage, loginUser: $loginUser, tokenUser: $tokenUser, userModel: $userModel)';
   }
 
   @override
@@ -239,26 +206,16 @@ class _$_AuthenticationState implements _AuthenticationState {
                 other.statusPage == statusPage) &&
             (identical(other.loginUser, loginUser) ||
                 other.loginUser == loginUser) &&
+            (identical(other.tokenUser, tokenUser) ||
+                other.tokenUser == tokenUser) &&
             (identical(other.userModel, userModel) ||
-                other.userModel == userModel) &&
-            const DeepCollectionEquality()
-                .equals(other._daftarArea, _daftarArea) &&
-            const DeepCollectionEquality()
-                .equals(other._daftarAreaID, _daftarAreaID) &&
-            (identical(other.userId, userId) || other.userId == userId));
+                other.userModel == userModel));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      status,
-      statusPage,
-      loginUser,
-      userModel,
-      const DeepCollectionEquality().hash(_daftarArea),
-      const DeepCollectionEquality().hash(_daftarAreaID),
-      userId);
+      runtimeType, status, statusPage, loginUser, tokenUser, userModel);
 
   @JsonKey(ignore: true)
   @override
@@ -279,11 +236,9 @@ abstract class _AuthenticationState implements AuthenticationState {
   const factory _AuthenticationState(
       {final AuthenticationStatus status,
       final PageReady statusPage,
-      final String? loginUser,
-      final String? userModel,
-      final List<String>? daftarArea,
-      final List<String>? daftarAreaID,
-      final String? userId}) = _$_AuthenticationState;
+      final DataUserLogin? loginUser,
+      final String? tokenUser,
+      final String? userModel}) = _$_AuthenticationState;
 
   factory _AuthenticationState.fromJson(Map<String, dynamic> json) =
       _$_AuthenticationState.fromJson;
@@ -293,15 +248,11 @@ abstract class _AuthenticationState implements AuthenticationState {
   @override
   PageReady get statusPage;
   @override
-  String? get loginUser;
+  DataUserLogin? get loginUser;
+  @override
+  String? get tokenUser;
   @override
   String? get userModel;
-  @override
-  List<String>? get daftarArea;
-  @override
-  List<String>? get daftarAreaID;
-  @override
-  String? get userId;
   @override
   @JsonKey(ignore: true)
   _$$_AuthenticationStateCopyWith<_$_AuthenticationState> get copyWith =>

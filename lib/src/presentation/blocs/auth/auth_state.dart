@@ -15,14 +15,12 @@ class AuthenticationState with _$AuthenticationState {
   const factory AuthenticationState({
     @Default(AuthenticationStatus.unknown) AuthenticationStatus status,
     @Default(PageReady.notReady) PageReady statusPage,
-    String? loginUser,
+    DataUserLogin? loginUser,
+    String? tokenUser,
     String? userModel,
-    List<String>? daftarArea,
-    List<String>? daftarAreaID,
-    String? userId,
   }) = _AuthenticationState;
 
-  factory AuthenticationState.authenticated(String loginUser) =>
+  factory AuthenticationState.authenticated(DataUserLogin loginUser) =>
       AuthenticationState(
           status: AuthenticationStatus.authenticated, loginUser: loginUser);
 

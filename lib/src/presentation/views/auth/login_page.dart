@@ -1,4 +1,5 @@
 import 'package:becca_supir/src/core/utils/extensions.dart';
+import 'package:becca_supir/src/data/models/response/login/response_login.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,20 +54,17 @@ class _LoginPageState extends State<LoginPage> {
         }
 
         if (state.status.isSubmissionSuccess) {
-          if (state.error != null) {
-            final nomorTelfon = await context.showInputNomorTelfonDialog(
-                title: "Akun Anda Belum Terverifikasi",
-                message: "Masukkan nomor telfon untuk mengirim verifikasi OTP",
-                negativeButton: "Tidak",
-                positiveButton: "Kirim");
-          } else {
-            context.read<AuthBloc>().add(
-                  AuthenticationStatusChanged(
-                    AuthenticationStatus.authenticated,
-                    state.loginUser,
-                  ),
-                );
-          }
+          ResponseLogin dataResponseLogin = state.loginUser!;
+
+          final tokenUser =
+              "${dataResponseLogin.tokenType} ${dataResponseLogin.token}";
+
+          print("TOKEN USER? ${tokenUser}");
+
+          context.read<AuthBloc>().add(
+                AuthenticationStatusChanged(AuthenticationStatus.verification,
+                    dataResponseLogin.data, tokenUser),
+              );
         }
       },
       child: Scaffold(
@@ -87,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: kToolbarHeight,
             ),
-                Padding(
+            Padding(
               padding: const EdgeInsets.all(10.0),
               child: Hero(
                 tag: Assets.icons.icon.keyName,
@@ -112,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(fontSize: 14.sp, color: themeFont),
               ),
             ),
-        
+
             const Hero(
               tag: 'Label-Email',
               flightShuttleBuilder: flightShuttleBuilder,
@@ -228,7 +226,7 @@ class _LoginPageState extends State<LoginPage> {
             //     textAlign: TextAlign.center,
             //   ),
             // ),
-      
+
             SizedBox(
               height: 30.sp,
             ),

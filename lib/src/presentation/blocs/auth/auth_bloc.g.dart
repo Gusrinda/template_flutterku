@@ -14,15 +14,11 @@ _$_AuthenticationState _$$_AuthenticationStateFromJson(
               AuthenticationStatus.unknown,
       statusPage: $enumDecodeNullable(_$PageReadyEnumMap, json['statusPage']) ??
           PageReady.notReady,
-      loginUser: json['loginUser'] as String?,
+      loginUser: json['loginUser'] == null
+          ? null
+          : DataUserLogin.fromJson(json['loginUser'] as Map<String, dynamic>),
+      tokenUser: json['tokenUser'] as String?,
       userModel: json['userModel'] as String?,
-      daftarArea: (json['daftarArea'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      daftarAreaID: (json['daftarAreaID'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      userId: json['userId'] as String?,
     );
 
 Map<String, dynamic> _$$_AuthenticationStateToJson(
@@ -31,10 +27,8 @@ Map<String, dynamic> _$$_AuthenticationStateToJson(
       'status': _$AuthenticationStatusEnumMap[instance.status]!,
       'statusPage': _$PageReadyEnumMap[instance.statusPage]!,
       'loginUser': instance.loginUser,
+      'tokenUser': instance.tokenUser,
       'userModel': instance.userModel,
-      'daftarArea': instance.daftarArea,
-      'daftarAreaID': instance.daftarAreaID,
-      'userId': instance.userId,
     };
 
 const _$AuthenticationStatusEnumMap = {

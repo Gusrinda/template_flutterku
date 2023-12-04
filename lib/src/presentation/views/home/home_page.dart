@@ -1,7 +1,6 @@
 import 'package:becca_supir/src/core/config/constant.dart';
 import 'package:becca_supir/src/core/config/theme_colors.dart';
 import 'package:becca_supir/src/core/model/TargetBulan.dart';
-import 'package:becca_supir/src/presentation/views/detail/detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,13 +58,6 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           const SizedBox(height: 16.0 * 2),
-                          ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(
-                                    context, DetailPage.routeName,
-                                    arguments: 'Judulnya Itu');
-                              },
-                              child: Text("Go to Page"))
                         ],
                       ),
                     ],

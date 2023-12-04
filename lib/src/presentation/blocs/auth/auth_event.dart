@@ -5,9 +5,11 @@ abstract class AuthenticationEvent extends Equatable {
 }
 
 class AuthenticationStatusChanged extends AuthenticationEvent {
-  const AuthenticationStatusChanged(this.status, [this.loginUser]);
+  const AuthenticationStatusChanged(this.status,
+      [this.loginUser, this.tokenUser]);
   final AuthenticationStatus status;
-  final String? loginUser;
+  final DataUserLogin? loginUser;
+  final String? tokenUser;
   @override
   List<Object?> get props => [status, loginUser];
 }
@@ -23,8 +25,6 @@ class FetchProfile extends AuthenticationEvent {
   @override
   List<Object?> get props => [];
 }
-
-
 
 class RegisterUserFetch extends AuthenticationEvent {
   const RegisterUserFetch();

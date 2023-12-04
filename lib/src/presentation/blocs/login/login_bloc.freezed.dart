@@ -20,7 +20,7 @@ mixin _$LoginState {
   FormTextInput get fieldUsername => throw _privateConstructorUsedError;
   FormTextInput get fieldPassword => throw _privateConstructorUsedError;
   bool get obscurePassword => throw _privateConstructorUsedError;
-  String? get loginUser => throw _privateConstructorUsedError;
+  ResponseLogin? get loginUser => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -39,8 +39,10 @@ abstract class $LoginStateCopyWith<$Res> {
       FormTextInput fieldUsername,
       FormTextInput fieldPassword,
       bool obscurePassword,
-      String? loginUser,
+      ResponseLogin? loginUser,
       String? error});
+
+  $ResponseLoginCopyWith<$Res>? get loginUser;
 }
 
 /// @nodoc
@@ -83,12 +85,24 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
       loginUser: freezed == loginUser
           ? _value.loginUser
           : loginUser // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as ResponseLogin?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ResponseLoginCopyWith<$Res>? get loginUser {
+    if (_value.loginUser == null) {
+      return null;
+    }
+
+    return $ResponseLoginCopyWith<$Res>(_value.loginUser!, (value) {
+      return _then(_value.copyWith(loginUser: value) as $Val);
+    });
   }
 }
 
@@ -105,8 +119,11 @@ abstract class _$$_LoginStateCopyWith<$Res>
       FormTextInput fieldUsername,
       FormTextInput fieldPassword,
       bool obscurePassword,
-      String? loginUser,
+      ResponseLogin? loginUser,
       String? error});
+
+  @override
+  $ResponseLoginCopyWith<$Res>? get loginUser;
 }
 
 /// @nodoc
@@ -147,7 +164,7 @@ class __$$_LoginStateCopyWithImpl<$Res>
       loginUser: freezed == loginUser
           ? _value.loginUser
           : loginUser // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as ResponseLogin?,
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -178,7 +195,7 @@ class _$_LoginState implements _LoginState {
   @JsonKey()
   final bool obscurePassword;
   @override
-  final String? loginUser;
+  final ResponseLogin? loginUser;
   @override
   final String? error;
 
@@ -221,7 +238,7 @@ abstract class _LoginState implements LoginState {
       required final FormTextInput fieldUsername,
       required final FormTextInput fieldPassword,
       final bool obscurePassword,
-      final String? loginUser,
+      final ResponseLogin? loginUser,
       final String? error}) = _$_LoginState;
 
   @override
@@ -233,7 +250,7 @@ abstract class _LoginState implements LoginState {
   @override
   bool get obscurePassword;
   @override
-  String? get loginUser;
+  ResponseLogin? get loginUser;
   @override
   String? get error;
   @override

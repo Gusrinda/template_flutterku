@@ -1,9 +1,10 @@
+import 'package:becca_supir/src/core/assets/assets.gen.dart';
+import 'package:becca_supir/src/core/config/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../presentation/widgets/card_widget.dart';
 import '../config/theme_colors.dart';
-
 
 Future<bool?> showConfirmationDialog({
   required BuildContext context,
@@ -186,6 +187,160 @@ Future<ChoiceItem?> showChoiceDialog({
                       style: ElevatedButton.styleFrom(
                         visualDensity: VisualDensity.standard,
                       ),
+                      child: Text(positiveButton),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}
+
+Future<bool?> handleFormSubmit(BuildContext context, String? title) async {
+  return await showDialog(
+    context: context,
+    builder: (context) {
+      return Dialog(
+        backgroundColor: Colors.white,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(24, 48, 24, 16),
+          constraints: const BoxConstraints(minWidth: 340),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                title ?? "Apakah Anda yakin?",
+                style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.bold,
+                    color: fontColorBold),
+              ),
+              const SizedBox(height: 16),
+              Image(
+                  image: AssetImage(
+                    Assets.images.login.path,
+                  ),
+                  height: 100),
+              const SizedBox(
+                height: 32,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        backgroundColor: ThemeColors.neutral4,
+                      ),
+                      child: Text(
+                        'TIDAK',
+                        style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w700,
+                            color: primaryColor),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context, true);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: primaryColor,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                      ),
+                      child: Text('YA',
+                          style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white)),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}
+
+Future<bool> showVerifikasiDialog({
+  required BuildContext context,
+  String? title,
+  required String message,
+  String negativeButton = 'Batal',
+  String positiveButton = 'Ya',
+}) async {
+  return await showDialog(
+    context: context,
+    barrierColor: Colors.black54,
+    builder: (context) {
+      return Dialog(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.sp)),
+        ),
+        child: Container(
+          padding: EdgeInsets.fromLTRB(24.sp, 24.sp, 24.sp, 16.sp),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (title != null) ...{
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w700,
+                    color: ThemeColors.blackPrimary,
+                  ),
+                ),
+                SizedBox(height: 16.sp),
+              },
+              Text(
+                message,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 12.sp),
+              ),
+              SizedBox(height: 24.sp),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.grey.withOpacity(0.5),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12))),
+                      child: Text(negativeButton),
+                    ),
+                  ),
+                  SizedBox(width: 16.sp),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.pop(context, true),
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12))),
                       child: Text(positiveButton),
                     ),
                   ),

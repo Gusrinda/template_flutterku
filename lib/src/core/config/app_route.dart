@@ -1,7 +1,5 @@
 import 'package:becca_supir/main.dart';
 import 'package:becca_supir/src/core/model/TargetBulan.dart';
-import 'package:becca_supir/src/presentation/blocs/product/bloc/daftar_product_bloc.dart';
-import 'package:becca_supir/src/presentation/views/detail/detail_page.dart';
 import 'package:becca_supir/src/presentation/views/home/dashboard.dart';
 
 import 'package:flutter/material.dart';
@@ -23,7 +21,9 @@ class AppRoute {
         builder = (context) => MultiBlocProvider(
               providers: [
                 BlocProvider(
-                  create: (context) => LoginBloc(),
+                  create: (context) => LoginBloc(
+                    userRepository: context.read(),
+                  ),
                 ),
               ],
               child: const LoginPage(),
@@ -35,23 +35,6 @@ class AppRoute {
 
         builder = (context) => DashboardPage(
               page: pageSelectController.stream,
-            );
-        break;
-
-      case DetailPage.routeName:
-        print("ARGUMENT ? => ${settings.arguments}");
-
-        String judul = settings.arguments as String;
-
-        builder = (context) => BlocProvider(
-              create: (context) {
-                return DaftarProductBloc(
-                  productRepository: context.read(),
-                );
-              },
-              child: DetailPage(
-                titleAppbar: judul,
-              ),
             );
         break;
 

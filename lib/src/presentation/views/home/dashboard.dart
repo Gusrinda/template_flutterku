@@ -2,10 +2,8 @@ import 'dart:async';
 
 import 'package:becca_supir/main.dart';
 import 'package:becca_supir/src/core/config/constant.dart';
-import 'package:becca_supir/src/domain/repository/doRepository.dart';
-import 'package:becca_supir/src/presentation/blocs/do/bloc/delivery_order_bloc.dart';
 import 'package:becca_supir/src/presentation/views/home/home_page.dart';
-import 'package:becca_supir/src/presentation/views/list_konfirm/list_confirm_view.dart';
+import 'package:becca_supir/src/presentation/views/profile/profile_page.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -61,16 +59,17 @@ class _DashboardPageState extends State<DashboardPage> {
       physics: const NeverScrollableScrollPhysics(),
       children: [
         HomePage(),
-        BlocProvider(
-          create: (context) {
-            return DeliveryOrderBloc(
-              orderRepository: context.read(),
-            );
-          },
-          child: ListKonfirmView(),
-        ),
         HomePage(),
+        // BlocProvider(
+        //   create: (context) {
+        //     return DeliveryOrderBloc(
+        //       orderRepository: context.read(),
+        //     );
+        //   },
+        //   child: ListKonfirmView(),
+        // ),
         HomePage(),
+        ProfilePage(),
       ],
     );
   }
@@ -95,15 +94,15 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         CustomBottomAppBarItem(
           icon: Assets.material.history,
-          text: "Page 2",
+          text: "DAFTAR MATERI",
         ),
         CustomBottomAppBarItem(
-          icon: Assets.material.bell,
-          text: "Page 3",
+          icon: Assets.material.form,
+          text: "PAGENATION",
         ),
         CustomBottomAppBarItem(
           icon: Assets.material.user,
-          text: "Page 4",
+          text: "PROFIL",
         ),
       ],
     );
