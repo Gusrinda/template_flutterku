@@ -16,6 +16,7 @@ class GeneralRepositoryImpl implements GeneralRepository {
       {required String token,
       String? filterKategori,
       String? search,
+      String? page,
       String? searchfield,
       String? paginate}) async {
     try {
@@ -23,8 +24,9 @@ class GeneralRepositoryImpl implements GeneralRepository {
           bearerToken: token,
           filterKategori: filterKategori,
           search: search,
+          page: page,
           searchfield: searchfield,
-          paginate: paginate ?? '100');
+          paginate: paginate);
 
       if (result?.data != null) {
         return result;

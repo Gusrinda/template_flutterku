@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:becca_supir/main.dart';
 import 'package:becca_supir/src/core/config/constant.dart';
 import 'package:becca_supir/src/presentation/views/home/home_page.dart';
+import 'package:becca_supir/src/presentation/views/materi/daftar_materi_view.dart';
 import 'package:becca_supir/src/presentation/views/profile/profile_page.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/config/theme_colors.dart';
@@ -30,9 +30,11 @@ class _DashboardPageState extends State<DashboardPage> {
   int? isSelectedStream;
 
   void changePageDirectly(int index) {
-    setState(() {
-      pageController.jumpToPage(index);
-    });
+    if (mounted) {
+      setState(() {
+        pageController.jumpToPage(index);
+      });
+    }
   }
 
   @override
@@ -59,7 +61,7 @@ class _DashboardPageState extends State<DashboardPage> {
       physics: const NeverScrollableScrollPhysics(),
       children: [
         HomePage(),
-        HomePage(),
+        DaftarMateriPage(),
         // BlocProvider(
         //   create: (context) {
         //     return DeliveryOrderBloc(
@@ -98,7 +100,7 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         CustomBottomAppBarItem(
           icon: Assets.material.form,
-          text: "PAGENATION",
+          text: "TEST",
         ),
         CustomBottomAppBarItem(
           icon: Assets.material.user,

@@ -7,5 +7,6 @@ abstract class GeneralRepository {
     String? search,
     String? searchfield,
     String? paginate,
+    String? page,
   });
 }

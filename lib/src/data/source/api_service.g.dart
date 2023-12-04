@@ -50,6 +50,7 @@ class _ApiService implements ApiService {
     search,
     searchfield,
     paginate,
+    page,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -57,6 +58,7 @@ class _ApiService implements ApiService {
       r'search': search,
       r'searchfield': searchfield,
       r'paginate': paginate,
+      r'page': page,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': bearerToken};

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:becca_supir/src/core/config/app_route.dart';
 import 'package:becca_supir/src/data/repository/general_repository_impl.dart';
 import 'package:becca_supir/src/data/repository/user_repository_impl.dart';
 import 'package:becca_supir/src/data/source/api_service.dart';
@@ -14,7 +13,6 @@ import 'package:dio_flutter_transformer/dio_flutter_transformer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -25,7 +23,7 @@ import 'package:provider/provider.dart';
 import 'src/presentation/app.dart';
 import 'src/core/settings/settings_service.dart';
 
-StreamController<int> pageSelectController = StreamController<int>();
+StreamController<int> pageSelectController = StreamController<int>.broadcast();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

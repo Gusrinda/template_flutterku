@@ -20,9 +20,14 @@ class AuthenticationState with _$AuthenticationState {
     String? userModel,
   }) = _AuthenticationState;
 
-  factory AuthenticationState.authenticated(DataUserLogin loginUser) =>
+  factory AuthenticationState.authenticated(
+    DataUserLogin loginUser,
+    String tokenUser,
+  ) =>
       AuthenticationState(
-          status: AuthenticationStatus.authenticated, loginUser: loginUser);
+          status: AuthenticationStatus.authenticated,
+          loginUser: loginUser,
+          tokenUser: tokenUser);
 
   factory AuthenticationState.unauthenticated() =>
       const AuthenticationState(status: AuthenticationStatus.unauthenticated);

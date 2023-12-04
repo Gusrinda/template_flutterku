@@ -8,5 +8,6 @@ mixin General {
     @Query('search') String? search,
     @Query('searchfield') String? searchfield,
     @Query('paginate') String? paginate,
+    @Query('page') String? page,
   });
 }

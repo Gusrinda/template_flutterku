@@ -1,6 +1,13 @@
 import 'package:becca_supir/main.dart';
-import 'package:becca_supir/src/core/model/TargetBulan.dart';
+import 'package:becca_supir/src/core/model/data_materi.dart';
+import 'package:becca_supir/src/presentation/blocs/auth/auth_bloc.dart';
+import 'package:becca_supir/src/presentation/blocs/materi/getData/bloc/get_data_bloc.dart';
+import 'package:becca_supir/src/presentation/blocs/materi/paginateData/paginate_data_bloc.dart';
+import 'package:becca_supir/src/presentation/blocs/materi/searchData/search_data_bloc.dart';
 import 'package:becca_supir/src/presentation/views/home/dashboard.dart';
+import 'package:becca_supir/src/presentation/views/materi/materi_page/materi_list_data.dart';
+import 'package:becca_supir/src/presentation/views/materi/materi_page/materi_paginate_data.dart';
+import 'package:becca_supir/src/presentation/views/materi/materi_page/materi_search_data.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +44,63 @@ class AppRoute {
               page: pageSelectController.stream,
             );
         break;
+      case MateriListDataView.routeName:
+        DataMateri dataMateri = settings.arguments as DataMateri;
 
+        builder = (context) => BlocProvider(
+              create: (context) {
+                final authBloc = context.read<AuthBloc>();
+                final user = authBloc.state.userModel;
+                final userLogin = authBloc.state.loginUser;
+                final tokenUser = authBloc.state.tokenUser;
+                return GetDataBloc(
+                  repository: context.read(),
+                  token: tokenUser,
+                );
+              },
+              child: MateriListDataView(
+                dataMateri: dataMateri,
+              ),
+            );
+        break;
+      case MateriSearchDataView.routeName:
+        DataMateri dataMateri = settings.arguments as DataMateri;
+
+        builder = (context) => BlocProvider(
+              create: (context) {
+                final authBloc = context.read<AuthBloc>();
+                final user = authBloc.state.userModel;
+                final userLogin = authBloc.state.loginUser;
+                final tokenUser = authBloc.state.tokenUser;
+                return SearchDataBloc(
+                  repository: context.read(),
+                  token: tokenUser,
+                );
+              },
+              child: MateriSearchDataView(
+                dataMateri: dataMateri,
+              ),
+            );
+        break;
+      case MateriPaginateDataView.routeName:
+        DataMateri dataMateri = settings.arguments as DataMateri;
+
+        builder = (context) => BlocProvider(
+              create: (context) {
+                final authBloc = context.read<AuthBloc>();
+                final user = authBloc.state.userModel;
+                final userLogin = authBloc.state.loginUser;
+                final tokenUser = authBloc.state.tokenUser;
+                return PaginateDataBloc(
+                  repository: context.read(),
+                  token: tokenUser,
+                );
+              },
+              child: MateriPaginateDataView(
+                dataMateri: dataMateri,
+              ),
+            );
+        break;
       default:
         builder = (context) => const SplashScreen();
         break;

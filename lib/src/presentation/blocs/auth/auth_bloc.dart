@@ -35,7 +35,8 @@ class AuthBloc extends HydratedBloc<AuthenticationEvent, AuthenticationState> {
           emit(state.copyWith(
               statusPage: PageReady.notReady, loginUser: loginUser));
 
-          emit(AuthenticationState.authenticated(loginUser));
+          emit(AuthenticationState.authenticated(
+              loginUser, event.tokenUser ?? ''));
 
           break;
         }

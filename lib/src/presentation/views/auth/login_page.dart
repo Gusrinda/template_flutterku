@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
           print("TOKEN USER? ${tokenUser}");
 
           context.read<AuthBloc>().add(
-                AuthenticationStatusChanged(AuthenticationStatus.verification,
+                AuthenticationStatusChanged(AuthenticationStatus.authenticated,
                     dataResponseLogin.data, tokenUser),
               );
         }
