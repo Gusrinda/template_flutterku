@@ -146,4 +146,9 @@ List<DataMateri> daftarMateri() => [
           deskripsi:
               "Mendapatkan list data lalu melakukan paginate tiap X data",
           function: MateriPaginateDataView.routeName),
+                DataMateri(
+          judul: "Dynamic Form Data",
+          deskripsi:
+              "Membuat list form dynamic",
+          function: MateriPaginateDataView.routeName),
     ];
