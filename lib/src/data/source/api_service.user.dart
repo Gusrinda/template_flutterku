@@ -1,6 +1,11 @@
 part of 'api_service.dart';
 
 mixin User {
-  @POST("/login")
-  Future<dynamic> doLoginUser({@Body() required Map<String, dynamic> request});
+  @FormUrlEncoded()
+  @POST("/checker_user_login")
+  Future<HttpResponse> doLoginUser(
+      {
+      // @Body() required Map<String, dynamic> request,
+      @Field("username") required String username,
+      @Field("password") required String password});
 }

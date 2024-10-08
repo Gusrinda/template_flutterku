@@ -1,7 +1,7 @@
-import 'package:becca_supir/src/data/models/response/general/response_master_general.dart';
-import 'package:becca_supir/src/data/source/api_service.dart';
-import 'package:becca_supir/src/domain/exception/api_exception.dart';
-import 'package:becca_supir/src/domain/repository/general_repository.dart';
+import 'package:soa_jpt/src/data/models/response/general/response_master_general.dart';
+import 'package:soa_jpt/src/data/source/api_service.dart';
+import 'package:soa_jpt/src/domain/exception/api_exception.dart';
+import 'package:soa_jpt/src/domain/repository/general_repository.dart';
 import 'package:dio/dio.dart';
 
 class GeneralRepositoryImpl implements GeneralRepository {

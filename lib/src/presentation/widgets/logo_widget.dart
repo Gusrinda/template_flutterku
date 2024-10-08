@@ -27,7 +27,7 @@ class AppLogo extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                'Template Apps',
+                'SOA JPT',
                 style: GoogleFonts.pacifico(
                   textStyle: const TextStyle(
                     color: Colors.blueGrey,

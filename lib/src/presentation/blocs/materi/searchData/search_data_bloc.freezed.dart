@@ -12,7 +12,7 @@ part of 'search_data_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SearchDataState {
@@ -86,11 +86,11 @@ class _$SearchDataStateCopyWithImpl<$Res, $Val extends SearchDataState>
 }
 
 /// @nodoc
-abstract class _$$_SearchDataStateCopyWith<$Res>
+abstract class _$$SearchDataStateImplCopyWith<$Res>
     implements $SearchDataStateCopyWith<$Res> {
-  factory _$$_SearchDataStateCopyWith(
-          _$_SearchDataState value, $Res Function(_$_SearchDataState) then) =
-      __$$_SearchDataStateCopyWithImpl<$Res>;
+  factory _$$SearchDataStateImplCopyWith(_$SearchDataStateImpl value,
+          $Res Function(_$SearchDataStateImpl) then) =
+      __$$SearchDataStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,11 +102,11 @@ abstract class _$$_SearchDataStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SearchDataStateCopyWithImpl<$Res>
-    extends _$SearchDataStateCopyWithImpl<$Res, _$_SearchDataState>
-    implements _$$_SearchDataStateCopyWith<$Res> {
-  __$$_SearchDataStateCopyWithImpl(
-      _$_SearchDataState _value, $Res Function(_$_SearchDataState) _then)
+class __$$SearchDataStateImplCopyWithImpl<$Res>
+    extends _$SearchDataStateCopyWithImpl<$Res, _$SearchDataStateImpl>
+    implements _$$SearchDataStateImplCopyWith<$Res> {
+  __$$SearchDataStateImplCopyWithImpl(
+      _$SearchDataStateImpl _value, $Res Function(_$SearchDataStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_SearchDataStateCopyWithImpl<$Res>
     Object? selectedFilter = freezed,
     Object? errorMessage = freezed,
   }) {
-    return _then(_$_SearchDataState(
+    return _then(_$SearchDataStateImpl(
       statusPage: freezed == statusPage ? _value.statusPage! : statusPage,
       daftarData: freezed == daftarData
           ? _value._daftarData
@@ -142,8 +142,8 @@ class __$$_SearchDataStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SearchDataState implements _SearchDataState {
-  const _$_SearchDataState(
+class _$SearchDataStateImpl implements _SearchDataState {
+  const _$SearchDataStateImpl(
       {this.statusPage = LoadingPageStatus.initial,
       final List<DataGeneral>? daftarData,
       final List<String>? daftarGroup,
@@ -186,10 +186,10 @@ class _$_SearchDataState implements _SearchDataState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SearchDataState &&
+            other is _$SearchDataStateImpl &&
             const DeepCollectionEquality()
                 .equals(other.statusPage, statusPage) &&
             const DeepCollectionEquality()
@@ -214,8 +214,9 @@ class _$_SearchDataState implements _SearchDataState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SearchDataStateCopyWith<_$_SearchDataState> get copyWith =>
-      __$$_SearchDataStateCopyWithImpl<_$_SearchDataState>(this, _$identity);
+  _$$SearchDataStateImplCopyWith<_$SearchDataStateImpl> get copyWith =>
+      __$$SearchDataStateImplCopyWithImpl<_$SearchDataStateImpl>(
+          this, _$identity);
 }
 
 abstract class _SearchDataState implements SearchDataState {
@@ -224,7 +225,7 @@ abstract class _SearchDataState implements SearchDataState {
       final List<DataGeneral>? daftarData,
       final List<String>? daftarGroup,
       final String? selectedFilter,
-      final String? errorMessage}) = _$_SearchDataState;
+      final String? errorMessage}) = _$SearchDataStateImpl;
 
   @override
   dynamic get statusPage;
@@ -238,6 +239,6 @@ abstract class _SearchDataState implements SearchDataState {
   String? get errorMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_SearchDataStateCopyWith<_$_SearchDataState> get copyWith =>
+  _$$SearchDataStateImplCopyWith<_$SearchDataStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

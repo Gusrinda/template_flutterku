@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:becca_supir/main.dart';
-import 'package:becca_supir/src/core/config/constant.dart';
-import 'package:becca_supir/src/presentation/views/home/home_page.dart';
-import 'package:becca_supir/src/presentation/views/materi/daftar_materi_view.dart';
-import 'package:becca_supir/src/presentation/views/profile/profile_page.dart';
+import 'package:soa_jpt/main.dart';
+import 'package:soa_jpt/src/core/config/constant.dart';
+import 'package:soa_jpt/src/presentation/views/home/home_page.dart';
+import 'package:soa_jpt/src/presentation/views/materi/daftar_materi_view.dart';
+import 'package:soa_jpt/src/presentation/views/profile/profile_page.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _body(),
-      bottomNavigationBar: _bottomNavigationBar(),
+      // bottomNavigationBar: _bottomNavigationBar(),
     );
   }
 
@@ -61,7 +61,7 @@ class _DashboardPageState extends State<DashboardPage> {
       physics: const NeverScrollableScrollPhysics(),
       children: [
         HomePage(),
-        DaftarMateriPage(),
+        // DaftarMateriPage(),
         // BlocProvider(
         //   create: (context) {
         //     return DeliveryOrderBloc(
@@ -70,8 +70,8 @@ class _DashboardPageState extends State<DashboardPage> {
         //   },
         //   child: ListKonfirmView(),
         // ),
-        HomePage(),
-        ProfilePage(),
+        // HomePage(),
+        // ProfilePage(),
       ],
     );
   }
@@ -94,17 +94,17 @@ class _DashboardPageState extends State<DashboardPage> {
           icon: Assets.material.home,
           text: "Home",
         ),
-        CustomBottomAppBarItem(
-          icon: Assets.material.history,
-          text: "DAFTAR MATERI",
-        ),
-        CustomBottomAppBarItem(
-          icon: Assets.material.form,
-          text: "TEST",
-        ),
+        // CustomBottomAppBarItem(
+        //   icon: Assets.material.history,
+        //   text: "DAFTAR MATERI",
+        // ),
+        // CustomBottomAppBarItem(
+        //   icon: Assets.material.form,
+        //   text: "TEST",
+        // ),
         CustomBottomAppBarItem(
           icon: Assets.material.user,
-          text: "PROFIL",
+          text: "Profile",
         ),
       ],
     );

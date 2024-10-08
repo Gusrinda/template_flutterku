@@ -1,4 +1,4 @@
-import 'package:becca_supir/src/core/config/constant.dart';
+import 'package:soa_jpt/src/core/config/constant.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 

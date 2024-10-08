@@ -12,7 +12,7 @@ part of 'request_save_konfirm.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 RequestSaveKonfirm _$RequestSaveKonfirmFromJson(Map<String, dynamic> json) {
   return _RequestSaveKonfirm.fromJson(json);
@@ -80,11 +80,11 @@ class _$RequestSaveKonfirmCopyWithImpl<$Res, $Val extends RequestSaveKonfirm>
 }
 
 /// @nodoc
-abstract class _$$_RequestSaveKonfirmCopyWith<$Res>
+abstract class _$$RequestSaveKonfirmImplCopyWith<$Res>
     implements $RequestSaveKonfirmCopyWith<$Res> {
-  factory _$$_RequestSaveKonfirmCopyWith(_$_RequestSaveKonfirm value,
-          $Res Function(_$_RequestSaveKonfirm) then) =
-      __$$_RequestSaveKonfirmCopyWithImpl<$Res>;
+  factory _$$RequestSaveKonfirmImplCopyWith(_$RequestSaveKonfirmImpl value,
+          $Res Function(_$RequestSaveKonfirmImpl) then) =
+      __$$RequestSaveKonfirmImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_RequestSaveKonfirmCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RequestSaveKonfirmCopyWithImpl<$Res>
-    extends _$RequestSaveKonfirmCopyWithImpl<$Res, _$_RequestSaveKonfirm>
-    implements _$$_RequestSaveKonfirmCopyWith<$Res> {
-  __$$_RequestSaveKonfirmCopyWithImpl(
-      _$_RequestSaveKonfirm _value, $Res Function(_$_RequestSaveKonfirm) _then)
+class __$$RequestSaveKonfirmImplCopyWithImpl<$Res>
+    extends _$RequestSaveKonfirmCopyWithImpl<$Res, _$RequestSaveKonfirmImpl>
+    implements _$$RequestSaveKonfirmImplCopyWith<$Res> {
+  __$$RequestSaveKonfirmImplCopyWithImpl(_$RequestSaveKonfirmImpl _value,
+      $Res Function(_$RequestSaveKonfirmImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_RequestSaveKonfirmCopyWithImpl<$Res>
     Object? mUserName = freezed,
     Object? detail = freezed,
   }) {
-    return _then(_$_RequestSaveKonfirm(
+    return _then(_$RequestSaveKonfirmImpl(
       mUserId: freezed == mUserId
           ? _value.mUserId
           : mUserId // ignore: cast_nullable_to_non_nullable
@@ -127,15 +127,15 @@ class __$$_RequestSaveKonfirmCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestSaveKonfirm implements _RequestSaveKonfirm {
-  const _$_RequestSaveKonfirm(
+class _$RequestSaveKonfirmImpl implements _RequestSaveKonfirm {
+  const _$RequestSaveKonfirmImpl(
       {@JsonKey(name: "m_user_id") this.mUserId,
       @JsonKey(name: "m_user_name") this.mUserName,
       @JsonKey(name: "detail") final List<Detail>? detail})
       : _detail = detail;
 
-  factory _$_RequestSaveKonfirm.fromJson(Map<String, dynamic> json) =>
-      _$$_RequestSaveKonfirmFromJson(json);
+  factory _$RequestSaveKonfirmImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RequestSaveKonfirmImplFromJson(json);
 
   @override
   @JsonKey(name: "m_user_id")
@@ -160,10 +160,10 @@ class _$_RequestSaveKonfirm implements _RequestSaveKonfirm {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RequestSaveKonfirm &&
+            other is _$RequestSaveKonfirmImpl &&
             (identical(other.mUserId, mUserId) || other.mUserId == mUserId) &&
             (identical(other.mUserName, mUserName) ||
                 other.mUserName == mUserName) &&
@@ -178,13 +178,13 @@ class _$_RequestSaveKonfirm implements _RequestSaveKonfirm {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RequestSaveKonfirmCopyWith<_$_RequestSaveKonfirm> get copyWith =>
-      __$$_RequestSaveKonfirmCopyWithImpl<_$_RequestSaveKonfirm>(
+  _$$RequestSaveKonfirmImplCopyWith<_$RequestSaveKonfirmImpl> get copyWith =>
+      __$$RequestSaveKonfirmImplCopyWithImpl<_$RequestSaveKonfirmImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestSaveKonfirmToJson(
+    return _$$RequestSaveKonfirmImplToJson(
       this,
     );
   }
@@ -195,10 +195,10 @@ abstract class _RequestSaveKonfirm implements RequestSaveKonfirm {
           {@JsonKey(name: "m_user_id") final int? mUserId,
           @JsonKey(name: "m_user_name") final String? mUserName,
           @JsonKey(name: "detail") final List<Detail>? detail}) =
-      _$_RequestSaveKonfirm;
+      _$RequestSaveKonfirmImpl;
 
   factory _RequestSaveKonfirm.fromJson(Map<String, dynamic> json) =
-      _$_RequestSaveKonfirm.fromJson;
+      _$RequestSaveKonfirmImpl.fromJson;
 
   @override
   @JsonKey(name: "m_user_id")
@@ -211,7 +211,7 @@ abstract class _RequestSaveKonfirm implements RequestSaveKonfirm {
   List<Detail>? get detail;
   @override
   @JsonKey(ignore: true)
-  _$$_RequestSaveKonfirmCopyWith<_$_RequestSaveKonfirm> get copyWith =>
+  _$$RequestSaveKonfirmImplCopyWith<_$RequestSaveKonfirmImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -271,9 +271,10 @@ class _$DetailCopyWithImpl<$Res, $Val extends Detail>
 }
 
 /// @nodoc
-abstract class _$$_DetailCopyWith<$Res> implements $DetailCopyWith<$Res> {
-  factory _$$_DetailCopyWith(_$_Detail value, $Res Function(_$_Detail) then) =
-      __$$_DetailCopyWithImpl<$Res>;
+abstract class _$$DetailImplCopyWith<$Res> implements $DetailCopyWith<$Res> {
+  factory _$$DetailImplCopyWith(
+          _$DetailImpl value, $Res Function(_$DetailImpl) then) =
+      __$$DetailImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -282,10 +283,11 @@ abstract class _$$_DetailCopyWith<$Res> implements $DetailCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DetailCopyWithImpl<$Res>
-    extends _$DetailCopyWithImpl<$Res, _$_Detail>
-    implements _$$_DetailCopyWith<$Res> {
-  __$$_DetailCopyWithImpl(_$_Detail _value, $Res Function(_$_Detail) _then)
+class __$$DetailImplCopyWithImpl<$Res>
+    extends _$DetailCopyWithImpl<$Res, _$DetailImpl>
+    implements _$$DetailImplCopyWith<$Res> {
+  __$$DetailImplCopyWithImpl(
+      _$DetailImpl _value, $Res Function(_$DetailImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -294,7 +296,7 @@ class __$$_DetailCopyWithImpl<$Res>
     Object? tDoHId = freezed,
     Object? tDpHId = freezed,
   }) {
-    return _then(_$_Detail(
+    return _then(_$DetailImpl(
       tDoHId: freezed == tDoHId
           ? _value.tDoHId
           : tDoHId // ignore: cast_nullable_to_non_nullable
@@ -309,13 +311,13 @@ class __$$_DetailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Detail implements _Detail {
-  const _$_Detail(
+class _$DetailImpl implements _Detail {
+  const _$DetailImpl(
       {@JsonKey(name: "t_do_h_id") this.tDoHId,
       @JsonKey(name: "t_dp_h_id") this.tDpHId});
 
-  factory _$_Detail.fromJson(Map<String, dynamic> json) =>
-      _$$_DetailFromJson(json);
+  factory _$DetailImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DetailImplFromJson(json);
 
   @override
   @JsonKey(name: "t_do_h_id")
@@ -330,10 +332,10 @@ class _$_Detail implements _Detail {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Detail &&
+            other is _$DetailImpl &&
             (identical(other.tDoHId, tDoHId) || other.tDoHId == tDoHId) &&
             (identical(other.tDpHId, tDpHId) || other.tDpHId == tDpHId));
   }
@@ -345,12 +347,12 @@ class _$_Detail implements _Detail {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DetailCopyWith<_$_Detail> get copyWith =>
-      __$$_DetailCopyWithImpl<_$_Detail>(this, _$identity);
+  _$$DetailImplCopyWith<_$DetailImpl> get copyWith =>
+      __$$DetailImplCopyWithImpl<_$DetailImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DetailToJson(
+    return _$$DetailImplToJson(
       this,
     );
   }
@@ -359,9 +361,9 @@ class _$_Detail implements _Detail {
 abstract class _Detail implements Detail {
   const factory _Detail(
       {@JsonKey(name: "t_do_h_id") final int? tDoHId,
-      @JsonKey(name: "t_dp_h_id") final int? tDpHId}) = _$_Detail;
+      @JsonKey(name: "t_dp_h_id") final int? tDpHId}) = _$DetailImpl;
 
-  factory _Detail.fromJson(Map<String, dynamic> json) = _$_Detail.fromJson;
+  factory _Detail.fromJson(Map<String, dynamic> json) = _$DetailImpl.fromJson;
 
   @override
   @JsonKey(name: "t_do_h_id")
@@ -371,6 +373,6 @@ abstract class _Detail implements Detail {
   int? get tDpHId;
   @override
   @JsonKey(ignore: true)
-  _$$_DetailCopyWith<_$_Detail> get copyWith =>
+  _$$DetailImplCopyWith<_$DetailImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

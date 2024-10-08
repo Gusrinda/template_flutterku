@@ -73,6 +73,7 @@ class FormzTextField extends StatelessWidget {
     this.errorMaxLines,
     this.textAlign = TextAlign.start,
     this.contentPadding,
+    this.focustNode,
   }) : super(key: key);
 
   final String? hintText;
@@ -80,6 +81,7 @@ class FormzTextField extends StatelessWidget {
   final Widget? leading;
   final String? leadingText;
   final Widget? trailing;
+  final FocusNode? focustNode;
   final bool obscureText;
   final bool readOnly;
   final bool enabled;
@@ -106,6 +108,7 @@ class FormzTextField extends StatelessWidget {
       controller: textEditingController,
       obscureText: obscureText,
       readOnly: readOnly,
+      focusNode: focustNode,
       enabled: enabled,
       autofocus: autofocus,
       decoration: InputDecoration(
@@ -124,7 +127,7 @@ class FormzTextField extends StatelessWidget {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Theme.of(context).errorColor),
+          borderSide: BorderSide(color: Colors.red),
         ),
         disabledBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -269,8 +272,7 @@ class FormzDropDownField extends StatelessWidget {
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      borderSide:
-                          BorderSide(color: Theme.of(context).errorColor),
+                      borderSide: BorderSide(color: Colors.red),
                     ),
                     disabledBorder: OutlineInputBorder(
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -543,7 +545,7 @@ class FormzUnderlineTextField extends StatelessWidget {
         ),
         errorBorder: UnderlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Theme.of(context).errorColor),
+          borderSide: BorderSide(color: Colors.red),
         ),
         disabledBorder: UnderlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -558,7 +560,9 @@ class FormzUnderlineTextField extends StatelessWidget {
         suffixIcon: trailing,
         hintText: hintText,
         hintStyle: const TextStyle(
-            color: ThemeColors.greyCaption, fontStyle: FontStyle.italic, fontWeight: FontWeight.w300),
+            color: ThemeColors.greyCaption,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w300),
         errorText: errorText,
         errorMaxLines: errorMaxLines,
         errorStyle: errorText != null && errorText!.isEmpty

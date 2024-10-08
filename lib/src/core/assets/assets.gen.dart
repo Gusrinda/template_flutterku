@@ -232,6 +232,9 @@ class $AssetsIconsGen {
   AssetGenImage get preference =>
       const AssetGenImage('assets/icons/preference.png');
 
+  /// File path: assets/icons/printer.png
+  AssetGenImage get printer => const AssetGenImage('assets/icons/printer.png');
+
   /// File path: assets/icons/profile.png
   AssetGenImage get profile => const AssetGenImage('assets/icons/profile.png');
 
@@ -356,6 +359,7 @@ class $AssetsIconsGen {
         play,
         plus,
         preference,
+        printer,
         profile,
         searchFill,
         search,
@@ -405,6 +409,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/confirmation.png
   AssetGenImage get confirmation =>
       const AssetGenImage('assets/images/confirmation.png');
+
+  /// File path: assets/images/icon_apps.jpg
+  AssetGenImage get iconApps =>
+      const AssetGenImage('assets/images/icon_apps.jpg');
 
   /// File path: assets/images/image_card.png
   AssetGenImage get imageCard =>
@@ -484,6 +492,15 @@ class $AssetsImagesGen {
   AssetGenImage get warningScope =>
       const AssetGenImage('assets/images/warning_scope.png');
 
+  /// File path: assets/images/wh1.webp
+  AssetGenImage get wh1 => const AssetGenImage('assets/images/wh1.webp');
+
+  /// File path: assets/images/wh2.jpg
+  AssetGenImage get wh2 => const AssetGenImage('assets/images/wh2.jpg');
+
+  /// File path: assets/images/wh3.jpg
+  AssetGenImage get wh3 => const AssetGenImage('assets/images/wh3.jpg');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         login,
@@ -493,6 +510,7 @@ class $AssetsImagesGen {
         bgBiru,
         bgOrange,
         confirmation,
+        iconApps,
         imageCard,
         konfirmasi,
         logoBecca,
@@ -512,7 +530,10 @@ class $AssetsImagesGen {
         successConfirm,
         target,
         visitingSukses,
-        warningScope
+        warningScope,
+        wh1,
+        wh2,
+        wh3
       ];
 }
 
@@ -625,9 +646,16 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName);
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
+
+  final Size? size;
+  final Set<String> flavors;
 
   Image image({
     Key? key,

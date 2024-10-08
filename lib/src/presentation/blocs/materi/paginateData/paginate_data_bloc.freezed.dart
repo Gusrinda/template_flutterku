@@ -12,7 +12,7 @@ part of 'paginate_data_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PaginateDataState {
@@ -100,11 +100,11 @@ class _$PaginateDataStateCopyWithImpl<$Res, $Val extends PaginateDataState>
 }
 
 /// @nodoc
-abstract class _$$_PaginateDataStateCopyWith<$Res>
+abstract class _$$PaginateDataStateImplCopyWith<$Res>
     implements $PaginateDataStateCopyWith<$Res> {
-  factory _$$_PaginateDataStateCopyWith(_$_PaginateDataState value,
-          $Res Function(_$_PaginateDataState) then) =
-      __$$_PaginateDataStateCopyWithImpl<$Res>;
+  factory _$$PaginateDataStateImplCopyWith(_$PaginateDataStateImpl value,
+          $Res Function(_$PaginateDataStateImpl) then) =
+      __$$PaginateDataStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -118,11 +118,11 @@ abstract class _$$_PaginateDataStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PaginateDataStateCopyWithImpl<$Res>
-    extends _$PaginateDataStateCopyWithImpl<$Res, _$_PaginateDataState>
-    implements _$$_PaginateDataStateCopyWith<$Res> {
-  __$$_PaginateDataStateCopyWithImpl(
-      _$_PaginateDataState _value, $Res Function(_$_PaginateDataState) _then)
+class __$$PaginateDataStateImplCopyWithImpl<$Res>
+    extends _$PaginateDataStateCopyWithImpl<$Res, _$PaginateDataStateImpl>
+    implements _$$PaginateDataStateImplCopyWith<$Res> {
+  __$$PaginateDataStateImplCopyWithImpl(_$PaginateDataStateImpl _value,
+      $Res Function(_$PaginateDataStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -136,7 +136,7 @@ class __$$_PaginateDataStateCopyWithImpl<$Res>
     Object? hasReachedMax = null,
     Object? errorMessage = freezed,
   }) {
-    return _then(_$_PaginateDataState(
+    return _then(_$PaginateDataStateImpl(
       statusPage: freezed == statusPage ? _value.statusPage! : statusPage,
       paginationStatus: freezed == paginationStatus
           ? _value.paginationStatus!
@@ -167,8 +167,8 @@ class __$$_PaginateDataStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PaginateDataState implements _PaginateDataState {
-  const _$_PaginateDataState(
+class _$PaginateDataStateImpl implements _PaginateDataState {
+  const _$PaginateDataStateImpl(
       {this.statusPage = LoadingPageStatus.initial,
       this.paginationStatus = LoadingPageStatus.initial,
       final List<DataGeneral>? daftarData,
@@ -211,10 +211,10 @@ class _$_PaginateDataState implements _PaginateDataState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaginateDataState &&
+            other is _$PaginateDataStateImpl &&
             const DeepCollectionEquality()
                 .equals(other.statusPage, statusPage) &&
             const DeepCollectionEquality()
@@ -245,8 +245,8 @@ class _$_PaginateDataState implements _PaginateDataState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaginateDataStateCopyWith<_$_PaginateDataState> get copyWith =>
-      __$$_PaginateDataStateCopyWithImpl<_$_PaginateDataState>(
+  _$$PaginateDataStateImplCopyWith<_$PaginateDataStateImpl> get copyWith =>
+      __$$PaginateDataStateImplCopyWithImpl<_$PaginateDataStateImpl>(
           this, _$identity);
 }
 
@@ -258,7 +258,7 @@ abstract class _PaginateDataState implements PaginateDataState {
       final int currentPage,
       final int? totalPage,
       final bool hasReachedMax,
-      final String? errorMessage}) = _$_PaginateDataState;
+      final String? errorMessage}) = _$PaginateDataStateImpl;
 
   @override
   dynamic get statusPage;
@@ -276,6 +276,6 @@ abstract class _PaginateDataState implements PaginateDataState {
   String? get errorMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_PaginateDataStateCopyWith<_$_PaginateDataState> get copyWith =>
+  _$$PaginateDataStateImplCopyWith<_$PaginateDataStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

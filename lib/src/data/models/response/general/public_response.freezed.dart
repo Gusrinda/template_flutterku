@@ -12,7 +12,7 @@ part of 'public_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PublicResponse _$PublicResponseFromJson(Map<String, dynamic> json) {
   return _PublicResponse.fromJson(json);
@@ -92,11 +92,11 @@ class _$PublicResponseCopyWithImpl<$Res, $Val extends PublicResponse>
 }
 
 /// @nodoc
-abstract class _$$_PublicResponseCopyWith<$Res>
+abstract class _$$PublicResponseImplCopyWith<$Res>
     implements $PublicResponseCopyWith<$Res> {
-  factory _$$_PublicResponseCopyWith(
-          _$_PublicResponse value, $Res Function(_$_PublicResponse) then) =
-      __$$_PublicResponseCopyWithImpl<$Res>;
+  factory _$$PublicResponseImplCopyWith(_$PublicResponseImpl value,
+          $Res Function(_$PublicResponseImpl) then) =
+      __$$PublicResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,11 +108,11 @@ abstract class _$$_PublicResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PublicResponseCopyWithImpl<$Res>
-    extends _$PublicResponseCopyWithImpl<$Res, _$_PublicResponse>
-    implements _$$_PublicResponseCopyWith<$Res> {
-  __$$_PublicResponseCopyWithImpl(
-      _$_PublicResponse _value, $Res Function(_$_PublicResponse) _then)
+class __$$PublicResponseImplCopyWithImpl<$Res>
+    extends _$PublicResponseCopyWithImpl<$Res, _$PublicResponseImpl>
+    implements _$$PublicResponseImplCopyWith<$Res> {
+  __$$PublicResponseImplCopyWithImpl(
+      _$PublicResponseImpl _value, $Res Function(_$PublicResponseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +124,7 @@ class __$$_PublicResponseCopyWithImpl<$Res>
     Object? id = freezed,
     Object? processedTime = freezed,
   }) {
-    return _then(_$_PublicResponse(
+    return _then(_$PublicResponseImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -151,8 +151,8 @@ class __$$_PublicResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PublicResponse implements _PublicResponse {
-  _$_PublicResponse(
+class _$PublicResponseImpl implements _PublicResponse {
+  _$PublicResponseImpl(
       {this.message,
       final List<dynamic>? success,
       final List<dynamic>? errors,
@@ -161,8 +161,8 @@ class _$_PublicResponse implements _PublicResponse {
       : _success = success,
         _errors = errors;
 
-  factory _$_PublicResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_PublicResponseFromJson(json);
+  factory _$PublicResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PublicResponseImplFromJson(json);
 
   @override
   final String? message;
@@ -198,10 +198,10 @@ class _$_PublicResponse implements _PublicResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PublicResponse &&
+            other is _$PublicResponseImpl &&
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other._success, _success) &&
             const DeepCollectionEquality().equals(other._errors, _errors) &&
@@ -223,12 +223,13 @@ class _$_PublicResponse implements _PublicResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PublicResponseCopyWith<_$_PublicResponse> get copyWith =>
-      __$$_PublicResponseCopyWithImpl<_$_PublicResponse>(this, _$identity);
+  _$$PublicResponseImplCopyWith<_$PublicResponseImpl> get copyWith =>
+      __$$PublicResponseImplCopyWithImpl<_$PublicResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PublicResponseToJson(
+    return _$$PublicResponseImplToJson(
       this,
     );
   }
@@ -241,10 +242,10 @@ abstract class _PublicResponse implements PublicResponse {
           final List<dynamic>? errors,
           final dynamic id,
           @JsonKey(name: 'processed_time') final double? processedTime}) =
-      _$_PublicResponse;
+      _$PublicResponseImpl;
 
   factory _PublicResponse.fromJson(Map<String, dynamic> json) =
-      _$_PublicResponse.fromJson;
+      _$PublicResponseImpl.fromJson;
 
   @override
   String? get message;
@@ -259,6 +260,6 @@ abstract class _PublicResponse implements PublicResponse {
   double? get processedTime;
   @override
   @JsonKey(ignore: true)
-  _$$_PublicResponseCopyWith<_$_PublicResponse> get copyWith =>
+  _$$PublicResponseImplCopyWith<_$PublicResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

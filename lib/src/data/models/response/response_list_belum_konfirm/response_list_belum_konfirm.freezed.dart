@@ -12,7 +12,7 @@ part of 'response_list_belum_konfirm.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ResponseListBelumKonfirm _$ResponseListBelumKonfirmFromJson(
     Map<String, dynamic> json) {
@@ -75,12 +75,12 @@ class _$ResponseListBelumKonfirmCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ResponseListBelumKonfirmCopyWith<$Res>
+abstract class _$$ResponseListBelumKonfirmImplCopyWith<$Res>
     implements $ResponseListBelumKonfirmCopyWith<$Res> {
-  factory _$$_ResponseListBelumKonfirmCopyWith(
-          _$_ResponseListBelumKonfirm value,
-          $Res Function(_$_ResponseListBelumKonfirm) then) =
-      __$$_ResponseListBelumKonfirmCopyWithImpl<$Res>;
+  factory _$$ResponseListBelumKonfirmImplCopyWith(
+          _$ResponseListBelumKonfirmImpl value,
+          $Res Function(_$ResponseListBelumKonfirmImpl) then) =
+      __$$ResponseListBelumKonfirmImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -89,12 +89,13 @@ abstract class _$$_ResponseListBelumKonfirmCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ResponseListBelumKonfirmCopyWithImpl<$Res>
+class __$$ResponseListBelumKonfirmImplCopyWithImpl<$Res>
     extends _$ResponseListBelumKonfirmCopyWithImpl<$Res,
-        _$_ResponseListBelumKonfirm>
-    implements _$$_ResponseListBelumKonfirmCopyWith<$Res> {
-  __$$_ResponseListBelumKonfirmCopyWithImpl(_$_ResponseListBelumKonfirm _value,
-      $Res Function(_$_ResponseListBelumKonfirm) _then)
+        _$ResponseListBelumKonfirmImpl>
+    implements _$$ResponseListBelumKonfirmImplCopyWith<$Res> {
+  __$$ResponseListBelumKonfirmImplCopyWithImpl(
+      _$ResponseListBelumKonfirmImpl _value,
+      $Res Function(_$ResponseListBelumKonfirmImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +104,7 @@ class __$$_ResponseListBelumKonfirmCopyWithImpl<$Res>
     Object? msg = freezed,
     Object? dataBelumKonfirm = freezed,
   }) {
-    return _then(_$_ResponseListBelumKonfirm(
+    return _then(_$ResponseListBelumKonfirmImpl(
       msg: freezed == msg
           ? _value.msg
           : msg // ignore: cast_nullable_to_non_nullable
@@ -118,14 +119,14 @@ class __$$_ResponseListBelumKonfirmCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ResponseListBelumKonfirm implements _ResponseListBelumKonfirm {
-  const _$_ResponseListBelumKonfirm(
+class _$ResponseListBelumKonfirmImpl implements _ResponseListBelumKonfirm {
+  const _$ResponseListBelumKonfirmImpl(
       {@JsonKey(name: "msg") this.msg,
       @JsonKey(name: "tbl") final List<DataBelumKonfirm>? dataBelumKonfirm})
       : _dataBelumKonfirm = dataBelumKonfirm;
 
-  factory _$_ResponseListBelumKonfirm.fromJson(Map<String, dynamic> json) =>
-      _$$_ResponseListBelumKonfirmFromJson(json);
+  factory _$ResponseListBelumKonfirmImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResponseListBelumKonfirmImplFromJson(json);
 
   @override
   @JsonKey(name: "msg")
@@ -148,10 +149,10 @@ class _$_ResponseListBelumKonfirm implements _ResponseListBelumKonfirm {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ResponseListBelumKonfirm &&
+            other is _$ResponseListBelumKonfirmImpl &&
             (identical(other.msg, msg) || other.msg == msg) &&
             const DeepCollectionEquality()
                 .equals(other._dataBelumKonfirm, _dataBelumKonfirm));
@@ -165,13 +166,13 @@ class _$_ResponseListBelumKonfirm implements _ResponseListBelumKonfirm {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResponseListBelumKonfirmCopyWith<_$_ResponseListBelumKonfirm>
-      get copyWith => __$$_ResponseListBelumKonfirmCopyWithImpl<
-          _$_ResponseListBelumKonfirm>(this, _$identity);
+  _$$ResponseListBelumKonfirmImplCopyWith<_$ResponseListBelumKonfirmImpl>
+      get copyWith => __$$ResponseListBelumKonfirmImplCopyWithImpl<
+          _$ResponseListBelumKonfirmImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResponseListBelumKonfirmToJson(
+    return _$$ResponseListBelumKonfirmImplToJson(
       this,
     );
   }
@@ -182,10 +183,10 @@ abstract class _ResponseListBelumKonfirm implements ResponseListBelumKonfirm {
           {@JsonKey(name: "msg") final String? msg,
           @JsonKey(name: "tbl")
           final List<DataBelumKonfirm>? dataBelumKonfirm}) =
-      _$_ResponseListBelumKonfirm;
+      _$ResponseListBelumKonfirmImpl;
 
   factory _ResponseListBelumKonfirm.fromJson(Map<String, dynamic> json) =
-      _$_ResponseListBelumKonfirm.fromJson;
+      _$ResponseListBelumKonfirmImpl.fromJson;
 
   @override
   @JsonKey(name: "msg")
@@ -195,7 +196,7 @@ abstract class _ResponseListBelumKonfirm implements ResponseListBelumKonfirm {
   List<DataBelumKonfirm>? get dataBelumKonfirm;
   @override
   @JsonKey(ignore: true)
-  _$$_ResponseListBelumKonfirmCopyWith<_$_ResponseListBelumKonfirm>
+  _$$ResponseListBelumKonfirmImplCopyWith<_$ResponseListBelumKonfirmImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -305,11 +306,11 @@ class _$DataBelumKonfirmCopyWithImpl<$Res, $Val extends DataBelumKonfirm>
 }
 
 /// @nodoc
-abstract class _$$_DataBelumKonfirmCopyWith<$Res>
+abstract class _$$DataBelumKonfirmImplCopyWith<$Res>
     implements $DataBelumKonfirmCopyWith<$Res> {
-  factory _$$_DataBelumKonfirmCopyWith(
-          _$_DataBelumKonfirm value, $Res Function(_$_DataBelumKonfirm) then) =
-      __$$_DataBelumKonfirmCopyWithImpl<$Res>;
+  factory _$$DataBelumKonfirmImplCopyWith(_$DataBelumKonfirmImpl value,
+          $Res Function(_$DataBelumKonfirmImpl) then) =
+      __$$DataBelumKonfirmImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -324,11 +325,11 @@ abstract class _$$_DataBelumKonfirmCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DataBelumKonfirmCopyWithImpl<$Res>
-    extends _$DataBelumKonfirmCopyWithImpl<$Res, _$_DataBelumKonfirm>
-    implements _$$_DataBelumKonfirmCopyWith<$Res> {
-  __$$_DataBelumKonfirmCopyWithImpl(
-      _$_DataBelumKonfirm _value, $Res Function(_$_DataBelumKonfirm) _then)
+class __$$DataBelumKonfirmImplCopyWithImpl<$Res>
+    extends _$DataBelumKonfirmCopyWithImpl<$Res, _$DataBelumKonfirmImpl>
+    implements _$$DataBelumKonfirmImplCopyWith<$Res> {
+  __$$DataBelumKonfirmImplCopyWithImpl(_$DataBelumKonfirmImpl _value,
+      $Res Function(_$DataBelumKonfirmImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -343,7 +344,7 @@ class __$$_DataBelumKonfirmCopyWithImpl<$Res>
     Object? mUserId = freezed,
     Object? mUserName = freezed,
   }) {
-    return _then(_$_DataBelumKonfirm(
+    return _then(_$DataBelumKonfirmImpl(
       tDoHId: freezed == tDoHId
           ? _value.tDoHId
           : tDoHId // ignore: cast_nullable_to_non_nullable
@@ -382,8 +383,8 @@ class __$$_DataBelumKonfirmCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DataBelumKonfirm implements _DataBelumKonfirm {
-  const _$_DataBelumKonfirm(
+class _$DataBelumKonfirmImpl implements _DataBelumKonfirm {
+  const _$DataBelumKonfirmImpl(
       {@JsonKey(name: "t_do_h_id") this.tDoHId,
       @JsonKey(name: "t_do_no") this.tDoNo,
       @JsonKey(name: "t_do_date") this.tDoDate,
@@ -393,8 +394,8 @@ class _$_DataBelumKonfirm implements _DataBelumKonfirm {
       @JsonKey(name: "m_user_id") this.mUserId,
       @JsonKey(name: "m_user_name") this.mUserName});
 
-  factory _$_DataBelumKonfirm.fromJson(Map<String, dynamic> json) =>
-      _$$_DataBelumKonfirmFromJson(json);
+  factory _$DataBelumKonfirmImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DataBelumKonfirmImplFromJson(json);
 
   @override
   @JsonKey(name: "t_do_h_id")
@@ -427,10 +428,10 @@ class _$_DataBelumKonfirm implements _DataBelumKonfirm {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DataBelumKonfirm &&
+            other is _$DataBelumKonfirmImpl &&
             (identical(other.tDoHId, tDoHId) || other.tDoHId == tDoHId) &&
             (identical(other.tDoNo, tDoNo) || other.tDoNo == tDoNo) &&
             (identical(other.tDoDate, tDoDate) || other.tDoDate == tDoDate) &&
@@ -452,12 +453,13 @@ class _$_DataBelumKonfirm implements _DataBelumKonfirm {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DataBelumKonfirmCopyWith<_$_DataBelumKonfirm> get copyWith =>
-      __$$_DataBelumKonfirmCopyWithImpl<_$_DataBelumKonfirm>(this, _$identity);
+  _$$DataBelumKonfirmImplCopyWith<_$DataBelumKonfirmImpl> get copyWith =>
+      __$$DataBelumKonfirmImplCopyWithImpl<_$DataBelumKonfirmImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DataBelumKonfirmToJson(
+    return _$$DataBelumKonfirmImplToJson(
       this,
     );
   }
@@ -473,10 +475,10 @@ abstract class _DataBelumKonfirm implements DataBelumKonfirm {
           @JsonKey(name: "m_cust_shipto_addr") final String? mCustShiptoAddr,
           @JsonKey(name: "m_user_id") final int? mUserId,
           @JsonKey(name: "m_user_name") final String? mUserName}) =
-      _$_DataBelumKonfirm;
+      _$DataBelumKonfirmImpl;
 
   factory _DataBelumKonfirm.fromJson(Map<String, dynamic> json) =
-      _$_DataBelumKonfirm.fromJson;
+      _$DataBelumKonfirmImpl.fromJson;
 
   @override
   @JsonKey(name: "t_do_h_id")
@@ -504,7 +506,7 @@ abstract class _DataBelumKonfirm implements DataBelumKonfirm {
   String? get mUserName;
   @override
   @JsonKey(ignore: true)
-  _$$_DataBelumKonfirmCopyWith<_$_DataBelumKonfirm> get copyWith =>
+  _$$DataBelumKonfirmImplCopyWith<_$DataBelumKonfirmImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -576,11 +578,11 @@ class _$ListSelectDOCopyWithImpl<$Res, $Val extends ListSelectDO>
 }
 
 /// @nodoc
-abstract class _$$_ListSelectDOCopyWith<$Res>
+abstract class _$$ListSelectDOImplCopyWith<$Res>
     implements $ListSelectDOCopyWith<$Res> {
-  factory _$$_ListSelectDOCopyWith(
-          _$_ListSelectDO value, $Res Function(_$_ListSelectDO) then) =
-      __$$_ListSelectDOCopyWithImpl<$Res>;
+  factory _$$ListSelectDOImplCopyWith(
+          _$ListSelectDOImpl value, $Res Function(_$ListSelectDOImpl) then) =
+      __$$ListSelectDOImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isSelected, DataBelumKonfirm? dataBelumKonfirm});
@@ -590,11 +592,11 @@ abstract class _$$_ListSelectDOCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ListSelectDOCopyWithImpl<$Res>
-    extends _$ListSelectDOCopyWithImpl<$Res, _$_ListSelectDO>
-    implements _$$_ListSelectDOCopyWith<$Res> {
-  __$$_ListSelectDOCopyWithImpl(
-      _$_ListSelectDO _value, $Res Function(_$_ListSelectDO) _then)
+class __$$ListSelectDOImplCopyWithImpl<$Res>
+    extends _$ListSelectDOCopyWithImpl<$Res, _$ListSelectDOImpl>
+    implements _$$ListSelectDOImplCopyWith<$Res> {
+  __$$ListSelectDOImplCopyWithImpl(
+      _$ListSelectDOImpl _value, $Res Function(_$ListSelectDOImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -603,7 +605,7 @@ class __$$_ListSelectDOCopyWithImpl<$Res>
     Object? isSelected = null,
     Object? dataBelumKonfirm = freezed,
   }) {
-    return _then(_$_ListSelectDO(
+    return _then(_$ListSelectDOImpl(
       isSelected: null == isSelected
           ? _value.isSelected
           : isSelected // ignore: cast_nullable_to_non_nullable
@@ -618,11 +620,11 @@ class __$$_ListSelectDOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ListSelectDO implements _ListSelectDO {
-  const _$_ListSelectDO({this.isSelected = false, this.dataBelumKonfirm});
+class _$ListSelectDOImpl implements _ListSelectDO {
+  const _$ListSelectDOImpl({this.isSelected = false, this.dataBelumKonfirm});
 
-  factory _$_ListSelectDO.fromJson(Map<String, dynamic> json) =>
-      _$$_ListSelectDOFromJson(json);
+  factory _$ListSelectDOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListSelectDOImplFromJson(json);
 
   @override
   @JsonKey()
@@ -636,10 +638,10 @@ class _$_ListSelectDO implements _ListSelectDO {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ListSelectDO &&
+            other is _$ListSelectDOImpl &&
             (identical(other.isSelected, isSelected) ||
                 other.isSelected == isSelected) &&
             (identical(other.dataBelumKonfirm, dataBelumKonfirm) ||
@@ -653,12 +655,12 @@ class _$_ListSelectDO implements _ListSelectDO {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ListSelectDOCopyWith<_$_ListSelectDO> get copyWith =>
-      __$$_ListSelectDOCopyWithImpl<_$_ListSelectDO>(this, _$identity);
+  _$$ListSelectDOImplCopyWith<_$ListSelectDOImpl> get copyWith =>
+      __$$ListSelectDOImplCopyWithImpl<_$ListSelectDOImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ListSelectDOToJson(
+    return _$$ListSelectDOImplToJson(
       this,
     );
   }
@@ -667,10 +669,10 @@ class _$_ListSelectDO implements _ListSelectDO {
 abstract class _ListSelectDO implements ListSelectDO {
   const factory _ListSelectDO(
       {final bool isSelected,
-      final DataBelumKonfirm? dataBelumKonfirm}) = _$_ListSelectDO;
+      final DataBelumKonfirm? dataBelumKonfirm}) = _$ListSelectDOImpl;
 
   factory _ListSelectDO.fromJson(Map<String, dynamic> json) =
-      _$_ListSelectDO.fromJson;
+      _$ListSelectDOImpl.fromJson;
 
   @override
   bool get isSelected;
@@ -678,6 +680,6 @@ abstract class _ListSelectDO implements ListSelectDO {
   DataBelumKonfirm? get dataBelumKonfirm;
   @override
   @JsonKey(ignore: true)
-  _$$_ListSelectDOCopyWith<_$_ListSelectDO> get copyWith =>
+  _$$ListSelectDOImplCopyWith<_$ListSelectDOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

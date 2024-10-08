@@ -1,4 +1,4 @@
-import 'package:becca_supir/src/core/model/data_materi.dart';
+import 'package:soa_jpt/src/core/model/data_materi.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:becca_supir/src/presentation/views/materi/materi_page/materi_list_data.dart';
+import 'package:soa_jpt/src/presentation/views/materi/materi_page/materi_list_data.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';

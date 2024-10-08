@@ -12,7 +12,7 @@ part of 'data_materi.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DataMateri _$DataMateriFromJson(Map<String, dynamic> json) {
   return _DataMateri.fromJson(json);
@@ -80,11 +80,11 @@ class _$DataMateriCopyWithImpl<$Res, $Val extends DataMateri>
 }
 
 /// @nodoc
-abstract class _$$_DataMateriCopyWith<$Res>
+abstract class _$$DataMateriImplCopyWith<$Res>
     implements $DataMateriCopyWith<$Res> {
-  factory _$$_DataMateriCopyWith(
-          _$_DataMateri value, $Res Function(_$_DataMateri) then) =
-      __$$_DataMateriCopyWithImpl<$Res>;
+  factory _$$DataMateriImplCopyWith(
+          _$DataMateriImpl value, $Res Function(_$DataMateriImpl) then) =
+      __$$DataMateriImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +94,11 @@ abstract class _$$_DataMateriCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DataMateriCopyWithImpl<$Res>
-    extends _$DataMateriCopyWithImpl<$Res, _$_DataMateri>
-    implements _$$_DataMateriCopyWith<$Res> {
-  __$$_DataMateriCopyWithImpl(
-      _$_DataMateri _value, $Res Function(_$_DataMateri) _then)
+class __$$DataMateriImplCopyWithImpl<$Res>
+    extends _$DataMateriCopyWithImpl<$Res, _$DataMateriImpl>
+    implements _$$DataMateriImplCopyWith<$Res> {
+  __$$DataMateriImplCopyWithImpl(
+      _$DataMateriImpl _value, $Res Function(_$DataMateriImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_DataMateriCopyWithImpl<$Res>
     Object? deskripsi = freezed,
     Object? function = freezed,
   }) {
-    return _then(_$_DataMateri(
+    return _then(_$DataMateriImpl(
       judul: freezed == judul
           ? _value.judul
           : judul // ignore: cast_nullable_to_non_nullable
@@ -127,14 +127,14 @@ class __$$_DataMateriCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DataMateri implements _DataMateri {
-  const _$_DataMateri(
+class _$DataMateriImpl implements _DataMateri {
+  const _$DataMateriImpl(
       {@JsonKey(name: "judul") this.judul,
       @JsonKey(name: "deskripsi") this.deskripsi,
       @JsonKey(name: "function") this.function});
 
-  factory _$_DataMateri.fromJson(Map<String, dynamic> json) =>
-      _$$_DataMateriFromJson(json);
+  factory _$DataMateriImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DataMateriImplFromJson(json);
 
   @override
   @JsonKey(name: "judul")
@@ -152,10 +152,10 @@ class _$_DataMateri implements _DataMateri {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DataMateri &&
+            other is _$DataMateriImpl &&
             (identical(other.judul, judul) || other.judul == judul) &&
             (identical(other.deskripsi, deskripsi) ||
                 other.deskripsi == deskripsi) &&
@@ -170,12 +170,12 @@ class _$_DataMateri implements _DataMateri {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DataMateriCopyWith<_$_DataMateri> get copyWith =>
-      __$$_DataMateriCopyWithImpl<_$_DataMateri>(this, _$identity);
+  _$$DataMateriImplCopyWith<_$DataMateriImpl> get copyWith =>
+      __$$DataMateriImplCopyWithImpl<_$DataMateriImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DataMateriToJson(
+    return _$$DataMateriImplToJson(
       this,
     );
   }
@@ -185,10 +185,10 @@ abstract class _DataMateri implements DataMateri {
   const factory _DataMateri(
       {@JsonKey(name: "judul") final String? judul,
       @JsonKey(name: "deskripsi") final String? deskripsi,
-      @JsonKey(name: "function") final dynamic function}) = _$_DataMateri;
+      @JsonKey(name: "function") final dynamic function}) = _$DataMateriImpl;
 
   factory _DataMateri.fromJson(Map<String, dynamic> json) =
-      _$_DataMateri.fromJson;
+      _$DataMateriImpl.fromJson;
 
   @override
   @JsonKey(name: "judul")
@@ -201,6 +201,6 @@ abstract class _DataMateri implements DataMateri {
   dynamic get function;
   @override
   @JsonKey(ignore: true)
-  _$$_DataMateriCopyWith<_$_DataMateri> get copyWith =>
+  _$$DataMateriImplCopyWith<_$DataMateriImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

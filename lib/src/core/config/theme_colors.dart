@@ -17,6 +17,7 @@ class ThemeColors {
   static const Color grey8 = Color(0xFFD9D9D9);
   static const Color backgroundPage = Color(0xFFF5F5F5);
   static const Color backgroundField = Color(0xFFF1F4FB);
+  static const Color backgroundTheme = Color(0xFF0F5595);
   static const Color backgroundFieldDark = Color(0xFF97B0EC);
   static const Color red = Color(0xFFEB5757);
   static const Color blackPrimary = Color(0xFF333333);
@@ -46,5 +47,4 @@ class ThemeColors {
   static const Color neutral9 = Color(0xFF404040);
 
 // #24406533
-
 }

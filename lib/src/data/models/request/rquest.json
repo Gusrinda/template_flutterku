@@ -1,0 +1,16 @@
+{
+    "JsonHdr": {
+        "trnordernote": "",
+        "orderno": "",
+        "userid": "",
+        "ekspedisioid": ""
+    },
+    "JsonDtl": [
+        {
+            "salesdeliveryqty": "",
+            "orderdtloid": "",
+            "itemoid": "",
+            "trnorderdtlunitoid": ""
+        }
+    ]
+}

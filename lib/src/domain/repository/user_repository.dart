@@ -1,4 +1,4 @@
-import 'package:becca_supir/src/data/models/response/login/response_login.dart';
+import 'package:soa_jpt/src/data/models/response/login/response_login.dart';
 
 abstract class UserRepository {
   Future<ResponseLogin?> login({

@@ -6,35 +6,37 @@ part of 'response_list_belum_konfirm.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ResponseListBelumKonfirm _$$_ResponseListBelumKonfirmFromJson(
+_$ResponseListBelumKonfirmImpl _$$ResponseListBelumKonfirmImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ResponseListBelumKonfirm(
+    _$ResponseListBelumKonfirmImpl(
       msg: json['msg'] as String?,
       dataBelumKonfirm: (json['tbl'] as List<dynamic>?)
           ?.map((e) => DataBelumKonfirm.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_ResponseListBelumKonfirmToJson(
-        _$_ResponseListBelumKonfirm instance) =>
+Map<String, dynamic> _$$ResponseListBelumKonfirmImplToJson(
+        _$ResponseListBelumKonfirmImpl instance) =>
     <String, dynamic>{
       'msg': instance.msg,
       'tbl': instance.dataBelumKonfirm,
     };
 
-_$_DataBelumKonfirm _$$_DataBelumKonfirmFromJson(Map<String, dynamic> json) =>
-    _$_DataBelumKonfirm(
-      tDoHId: json['t_do_h_id'] as int?,
+_$DataBelumKonfirmImpl _$$DataBelumKonfirmImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DataBelumKonfirmImpl(
+      tDoHId: (json['t_do_h_id'] as num?)?.toInt(),
       tDoNo: json['t_do_no'] as String?,
       tDoDate: json['t_do_date'] as String?,
-      tDpHId: json['t_dp_h_id'] as int?,
+      tDpHId: (json['t_dp_h_id'] as num?)?.toInt(),
       mCustName: json['m_cust_name'] as String?,
       mCustShiptoAddr: json['m_cust_shipto_addr'] as String?,
-      mUserId: json['m_user_id'] as int?,
+      mUserId: (json['m_user_id'] as num?)?.toInt(),
       mUserName: json['m_user_name'] as String?,
     );
 
-Map<String, dynamic> _$$_DataBelumKonfirmToJson(_$_DataBelumKonfirm instance) =>
+Map<String, dynamic> _$$DataBelumKonfirmImplToJson(
+        _$DataBelumKonfirmImpl instance) =>
     <String, dynamic>{
       't_do_h_id': instance.tDoHId,
       't_do_no': instance.tDoNo,
@@ -46,8 +48,8 @@ Map<String, dynamic> _$$_DataBelumKonfirmToJson(_$_DataBelumKonfirm instance) =>
       'm_user_name': instance.mUserName,
     };
 
-_$_ListSelectDO _$$_ListSelectDOFromJson(Map<String, dynamic> json) =>
-    _$_ListSelectDO(
+_$ListSelectDOImpl _$$ListSelectDOImplFromJson(Map<String, dynamic> json) =>
+    _$ListSelectDOImpl(
       isSelected: json['isSelected'] as bool? ?? false,
       dataBelumKonfirm: json['dataBelumKonfirm'] == null
           ? null
@@ -55,7 +57,7 @@ _$_ListSelectDO _$$_ListSelectDOFromJson(Map<String, dynamic> json) =>
               json['dataBelumKonfirm'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_ListSelectDOToJson(_$_ListSelectDO instance) =>
+Map<String, dynamic> _$$ListSelectDOImplToJson(_$ListSelectDOImpl instance) =>
     <String, dynamic>{
       'isSelected': instance.isSelected,
       'dataBelumKonfirm': instance.dataBelumKonfirm,

@@ -138,9 +138,9 @@ extension MyBuildContext on BuildContext {
                 onPressed: () {
                   Navigator.pop(context, false);
                 },
-                child: Text(negativeButton),
+                child: Text(negativeButton, style: TextStyle(color: Colors.red),),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () {
                   Navigator.pop(context, true);
                 },

@@ -12,7 +12,7 @@ part of 'get_data_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GetDataState {
@@ -72,11 +72,11 @@ class _$GetDataStateCopyWithImpl<$Res, $Val extends GetDataState>
 }
 
 /// @nodoc
-abstract class _$$_GetDataStateCopyWith<$Res>
+abstract class _$$GetDataStateImplCopyWith<$Res>
     implements $GetDataStateCopyWith<$Res> {
-  factory _$$_GetDataStateCopyWith(
-          _$_GetDataState value, $Res Function(_$_GetDataState) then) =
-      __$$_GetDataStateCopyWithImpl<$Res>;
+  factory _$$GetDataStateImplCopyWith(
+          _$GetDataStateImpl value, $Res Function(_$GetDataStateImpl) then) =
+      __$$GetDataStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -86,11 +86,11 @@ abstract class _$$_GetDataStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GetDataStateCopyWithImpl<$Res>
-    extends _$GetDataStateCopyWithImpl<$Res, _$_GetDataState>
-    implements _$$_GetDataStateCopyWith<$Res> {
-  __$$_GetDataStateCopyWithImpl(
-      _$_GetDataState _value, $Res Function(_$_GetDataState) _then)
+class __$$GetDataStateImplCopyWithImpl<$Res>
+    extends _$GetDataStateCopyWithImpl<$Res, _$GetDataStateImpl>
+    implements _$$GetDataStateImplCopyWith<$Res> {
+  __$$GetDataStateImplCopyWithImpl(
+      _$GetDataStateImpl _value, $Res Function(_$GetDataStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$_GetDataStateCopyWithImpl<$Res>
     Object? daftarData = freezed,
     Object? errorMessage = freezed,
   }) {
-    return _then(_$_GetDataState(
+    return _then(_$GetDataStateImpl(
       statusPage: freezed == statusPage ? _value.statusPage! : statusPage,
       daftarData: freezed == daftarData
           ? _value._daftarData
@@ -116,8 +116,8 @@ class __$$_GetDataStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetDataState implements _GetDataState {
-  const _$_GetDataState(
+class _$GetDataStateImpl implements _GetDataState {
+  const _$GetDataStateImpl(
       {this.statusPage = LoadingPageStatus.initial,
       final List<DataGeneral>? daftarData,
       this.errorMessage})
@@ -145,10 +145,10 @@ class _$_GetDataState implements _GetDataState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GetDataState &&
+            other is _$GetDataStateImpl &&
             const DeepCollectionEquality()
                 .equals(other.statusPage, statusPage) &&
             const DeepCollectionEquality()
@@ -167,15 +167,15 @@ class _$_GetDataState implements _GetDataState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetDataStateCopyWith<_$_GetDataState> get copyWith =>
-      __$$_GetDataStateCopyWithImpl<_$_GetDataState>(this, _$identity);
+  _$$GetDataStateImplCopyWith<_$GetDataStateImpl> get copyWith =>
+      __$$GetDataStateImplCopyWithImpl<_$GetDataStateImpl>(this, _$identity);
 }
 
 abstract class _GetDataState implements GetDataState {
   const factory _GetDataState(
       {final dynamic statusPage,
       final List<DataGeneral>? daftarData,
-      final String? errorMessage}) = _$_GetDataState;
+      final String? errorMessage}) = _$GetDataStateImpl;
 
   @override
   dynamic get statusPage;
@@ -185,6 +185,6 @@ abstract class _GetDataState implements GetDataState {
   String? get errorMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_GetDataStateCopyWith<_$_GetDataState> get copyWith =>
+  _$$GetDataStateImplCopyWith<_$GetDataStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
-import 'package:becca_supir/src/core/assets/assets.gen.dart';
-import 'package:becca_supir/src/core/config/constant.dart';
+import 'package:soa_jpt/src/core/assets/assets.gen.dart';
+import 'package:soa_jpt/src/core/config/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:becca_supir/src/data/models/response/login/response_login.dart';
-import 'package:becca_supir/src/domain/repository/user_repository.dart';
+import 'package:soa_jpt/src/data/models/response/login/response_login.dart';
+import 'package:soa_jpt/src/domain/repository/user_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';

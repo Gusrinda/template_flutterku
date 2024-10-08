@@ -6,14 +6,14 @@ part of 'data_materi.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DataMateri _$$_DataMateriFromJson(Map<String, dynamic> json) =>
-    _$_DataMateri(
+_$DataMateriImpl _$$DataMateriImplFromJson(Map<String, dynamic> json) =>
+    _$DataMateriImpl(
       judul: json['judul'] as String?,
       deskripsi: json['deskripsi'] as String?,
       function: json['function'],
     );
 
-Map<String, dynamic> _$$_DataMateriToJson(_$_DataMateri instance) =>
+Map<String, dynamic> _$$DataMateriImplToJson(_$DataMateriImpl instance) =>
     <String, dynamic>{
       'judul': instance.judul,
       'deskripsi': instance.deskripsi,

@@ -6,26 +6,26 @@ part of 'response_master_general.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ResponseMasterGeneral _$$_ResponseMasterGeneralFromJson(
+_$ResponseMasterGeneralImpl _$$ResponseMasterGeneralImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ResponseMasterGeneral(
+    _$ResponseMasterGeneralImpl(
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => DataGeneral.fromJson(e as Map<String, dynamic>))
           .toList(),
-      total: json['total'] as int?,
-      currentPage: json['current_page'] as int?,
-      perPage: json['per_page'] as int?,
-      from: json['from'] as int?,
-      to: json['to'] as int?,
-      lastPage: json['last_page'] as int?,
+      total: (json['total'] as num?)?.toInt(),
+      currentPage: (json['current_page'] as num?)?.toInt(),
+      perPage: (json['per_page'] as num?)?.toInt(),
+      from: (json['from'] as num?)?.toInt(),
+      to: (json['to'] as num?)?.toInt(),
+      lastPage: (json['last_page'] as num?)?.toInt(),
       hasNext: json['has_next'] as bool?,
       prev: json['prev'],
       next: json['next'],
       processedTime: (json['processed_time'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$_ResponseMasterGeneralToJson(
-        _$_ResponseMasterGeneral instance) =>
+Map<String, dynamic> _$$ResponseMasterGeneralImplToJson(
+        _$ResponseMasterGeneralImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
       'total': instance.total,
@@ -40,13 +40,13 @@ Map<String, dynamic> _$$_ResponseMasterGeneralToJson(
       'processed_time': instance.processedTime,
     };
 
-_$_DataGeneral _$$_DataGeneralFromJson(Map<String, dynamic> json) =>
-    _$_DataGeneral(
+_$DataGeneralImpl _$$DataGeneralImplFromJson(Map<String, dynamic> json) =>
+    _$DataGeneralImpl(
       metaRead: json['meta_read'] as bool?,
       metaDelete: json['meta_delete'] as bool?,
       metaUpdate: json['meta_update'] as bool?,
       metaCreate: json['meta_create'] as bool?,
-      id: json['id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
       group: json['group'] as String?,
       key: json['key'] as String?,
       kode: json['kode'] as String?,
@@ -57,7 +57,7 @@ _$_DataGeneral _$$_DataGeneralFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updated_at'] as String?,
     );
 
-Map<String, dynamic> _$$_DataGeneralToJson(_$_DataGeneral instance) =>
+Map<String, dynamic> _$$DataGeneralImplToJson(_$DataGeneralImpl instance) =>
     <String, dynamic>{
       'meta_read': instance.metaRead,
       'meta_delete': instance.metaDelete,

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
 
-import 'package:becca_supir/src/data/models/response/login/response_login.dart';
+import 'package:soa_jpt/src/data/models/response/login/response_login.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -74,4 +74,5 @@ class AuthBloc extends HydratedBloc<AuthenticationEvent, AuthenticationState> {
   Map<String, dynamic>? toJson(AuthenticationState state) {
     return state.toJson();
   }
+  
 }

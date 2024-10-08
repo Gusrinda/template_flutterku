@@ -6,9 +6,9 @@ part of 'auth_bloc.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AuthenticationState _$$_AuthenticationStateFromJson(
+_$AuthenticationStateImpl _$$AuthenticationStateImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AuthenticationState(
+    _$AuthenticationStateImpl(
       status:
           $enumDecodeNullable(_$AuthenticationStatusEnumMap, json['status']) ??
               AuthenticationStatus.unknown,
@@ -21,8 +21,8 @@ _$_AuthenticationState _$$_AuthenticationStateFromJson(
       userModel: json['userModel'] as String?,
     );
 
-Map<String, dynamic> _$$_AuthenticationStateToJson(
-        _$_AuthenticationState instance) =>
+Map<String, dynamic> _$$AuthenticationStateImplToJson(
+        _$AuthenticationStateImpl instance) =>
     <String, dynamic>{
       'status': _$AuthenticationStatusEnumMap[instance.status]!,
       'statusPage': _$PageReadyEnumMap[instance.statusPage]!,

@@ -1,5 +1,5 @@
-import 'package:becca_supir/src/core/utils/extensions.dart';
-import 'package:becca_supir/src/data/models/response/login/response_login.dart';
+import 'package:soa_jpt/src/core/utils/extensions.dart';
+import 'package:soa_jpt/src/data/models/response/login/response_login.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,14 +56,13 @@ class _LoginPageState extends State<LoginPage> {
         if (state.status.isSubmissionSuccess) {
           ResponseLogin dataResponseLogin = state.loginUser!;
 
-          final tokenUser =
-              "${dataResponseLogin.tokenType} ${dataResponseLogin.token}";
+          final tokenUser = "";
 
           print("TOKEN USER? ${tokenUser}");
 
           context.read<AuthBloc>().add(
                 AuthenticationStatusChanged(AuthenticationStatus.authenticated,
-                    dataResponseLogin.data, tokenUser),
+                    dataResponseLogin.msgServer!.first, tokenUser),
               );
         }
       },
@@ -115,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
               tag: 'Label-Email',
               flightShuttleBuilder: flightShuttleBuilder,
               child: FormTextLabel(
-                label: "Email",
+                label: "Username",
                 labelColor: ThemeColors.navy6,
               ),
             ),
@@ -314,14 +313,14 @@ class _FormInputEmail extends StatelessWidget {
             // ignore: prefer_const_constructors
             child: FormzTextField(
               textEditingController: state.fieldUsername.textEditingController,
-              hintText: "Input registered email",
+              hintText: "Input registered username",
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
               onChanged: (email) =>
                   context.read<LoginBloc>().add(OnUsernameChanged(email)),
               readOnly: state.status.isSubmissionInProgress,
               errorText:
-                  state.fieldUsername.invalid ? 'Silakan isi EMAIL' : null,
+                  state.fieldUsername.invalid ? 'Silakan isi USERNAME' : null,
             ),
           ),
         );

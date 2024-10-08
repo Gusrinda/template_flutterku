@@ -1,4 +1,4 @@
-import 'package:becca_supir/src/data/models/response/general/response_master_general.dart';
+import 'package:soa_jpt/src/data/models/response/general/response_master_general.dart';
 
 abstract class GeneralRepository {
   Future<ResponseMasterGeneral?> getDaftarDataGeneral({

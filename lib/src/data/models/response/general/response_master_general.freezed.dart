@@ -12,7 +12,7 @@ part of 'response_master_general.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ResponseMasterGeneral _$ResponseMasterGeneralFromJson(
     Map<String, dynamic> json) {
@@ -146,11 +146,12 @@ class _$ResponseMasterGeneralCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ResponseMasterGeneralCopyWith<$Res>
+abstract class _$$ResponseMasterGeneralImplCopyWith<$Res>
     implements $ResponseMasterGeneralCopyWith<$Res> {
-  factory _$$_ResponseMasterGeneralCopyWith(_$_ResponseMasterGeneral value,
-          $Res Function(_$_ResponseMasterGeneral) then) =
-      __$$_ResponseMasterGeneralCopyWithImpl<$Res>;
+  factory _$$ResponseMasterGeneralImplCopyWith(
+          _$ResponseMasterGeneralImpl value,
+          $Res Function(_$ResponseMasterGeneralImpl) then) =
+      __$$ResponseMasterGeneralImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -168,11 +169,12 @@ abstract class _$$_ResponseMasterGeneralCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ResponseMasterGeneralCopyWithImpl<$Res>
-    extends _$ResponseMasterGeneralCopyWithImpl<$Res, _$_ResponseMasterGeneral>
-    implements _$$_ResponseMasterGeneralCopyWith<$Res> {
-  __$$_ResponseMasterGeneralCopyWithImpl(_$_ResponseMasterGeneral _value,
-      $Res Function(_$_ResponseMasterGeneral) _then)
+class __$$ResponseMasterGeneralImplCopyWithImpl<$Res>
+    extends _$ResponseMasterGeneralCopyWithImpl<$Res,
+        _$ResponseMasterGeneralImpl>
+    implements _$$ResponseMasterGeneralImplCopyWith<$Res> {
+  __$$ResponseMasterGeneralImplCopyWithImpl(_$ResponseMasterGeneralImpl _value,
+      $Res Function(_$ResponseMasterGeneralImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -190,7 +192,7 @@ class __$$_ResponseMasterGeneralCopyWithImpl<$Res>
     Object? next = freezed,
     Object? processedTime = freezed,
   }) {
-    return _then(_$_ResponseMasterGeneral(
+    return _then(_$ResponseMasterGeneralImpl(
       data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -241,8 +243,8 @@ class __$$_ResponseMasterGeneralCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ResponseMasterGeneral implements _ResponseMasterGeneral {
-  const _$_ResponseMasterGeneral(
+class _$ResponseMasterGeneralImpl implements _ResponseMasterGeneral {
+  const _$ResponseMasterGeneralImpl(
       {@JsonKey(name: "data") final List<DataGeneral>? data,
       @JsonKey(name: "total") this.total,
       @JsonKey(name: "current_page") this.currentPage,
@@ -256,8 +258,8 @@ class _$_ResponseMasterGeneral implements _ResponseMasterGeneral {
       @JsonKey(name: "processed_time") this.processedTime})
       : _data = data;
 
-  factory _$_ResponseMasterGeneral.fromJson(Map<String, dynamic> json) =>
-      _$$_ResponseMasterGeneralFromJson(json);
+  factory _$ResponseMasterGeneralImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ResponseMasterGeneralImplFromJson(json);
 
   final List<DataGeneral>? _data;
   @override
@@ -307,10 +309,10 @@ class _$_ResponseMasterGeneral implements _ResponseMasterGeneral {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ResponseMasterGeneral &&
+            other is _$ResponseMasterGeneralImpl &&
             const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.total, total) || other.total == total) &&
             (identical(other.currentPage, currentPage) ||
@@ -346,13 +348,13 @@ class _$_ResponseMasterGeneral implements _ResponseMasterGeneral {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ResponseMasterGeneralCopyWith<_$_ResponseMasterGeneral> get copyWith =>
-      __$$_ResponseMasterGeneralCopyWithImpl<_$_ResponseMasterGeneral>(
-          this, _$identity);
+  _$$ResponseMasterGeneralImplCopyWith<_$ResponseMasterGeneralImpl>
+      get copyWith => __$$ResponseMasterGeneralImplCopyWithImpl<
+          _$ResponseMasterGeneralImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResponseMasterGeneralToJson(
+    return _$$ResponseMasterGeneralImplToJson(
       this,
     );
   }
@@ -371,10 +373,10 @@ abstract class _ResponseMasterGeneral implements ResponseMasterGeneral {
           @JsonKey(name: "prev") final dynamic prev,
           @JsonKey(name: "next") final dynamic next,
           @JsonKey(name: "processed_time") final double? processedTime}) =
-      _$_ResponseMasterGeneral;
+      _$ResponseMasterGeneralImpl;
 
   factory _ResponseMasterGeneral.fromJson(Map<String, dynamic> json) =
-      _$_ResponseMasterGeneral.fromJson;
+      _$ResponseMasterGeneralImpl.fromJson;
 
   @override
   @JsonKey(name: "data")
@@ -411,8 +413,8 @@ abstract class _ResponseMasterGeneral implements ResponseMasterGeneral {
   double? get processedTime;
   @override
   @JsonKey(ignore: true)
-  _$$_ResponseMasterGeneralCopyWith<_$_ResponseMasterGeneral> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ResponseMasterGeneralImplCopyWith<_$ResponseMasterGeneralImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 DataGeneral _$DataGeneralFromJson(Map<String, dynamic> json) {
@@ -561,11 +563,11 @@ class _$DataGeneralCopyWithImpl<$Res, $Val extends DataGeneral>
 }
 
 /// @nodoc
-abstract class _$$_DataGeneralCopyWith<$Res>
+abstract class _$$DataGeneralImplCopyWith<$Res>
     implements $DataGeneralCopyWith<$Res> {
-  factory _$$_DataGeneralCopyWith(
-          _$_DataGeneral value, $Res Function(_$_DataGeneral) then) =
-      __$$_DataGeneralCopyWithImpl<$Res>;
+  factory _$$DataGeneralImplCopyWith(
+          _$DataGeneralImpl value, $Res Function(_$DataGeneralImpl) then) =
+      __$$DataGeneralImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -585,11 +587,11 @@ abstract class _$$_DataGeneralCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DataGeneralCopyWithImpl<$Res>
-    extends _$DataGeneralCopyWithImpl<$Res, _$_DataGeneral>
-    implements _$$_DataGeneralCopyWith<$Res> {
-  __$$_DataGeneralCopyWithImpl(
-      _$_DataGeneral _value, $Res Function(_$_DataGeneral) _then)
+class __$$DataGeneralImplCopyWithImpl<$Res>
+    extends _$DataGeneralCopyWithImpl<$Res, _$DataGeneralImpl>
+    implements _$$DataGeneralImplCopyWith<$Res> {
+  __$$DataGeneralImplCopyWithImpl(
+      _$DataGeneralImpl _value, $Res Function(_$DataGeneralImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -609,7 +611,7 @@ class __$$_DataGeneralCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_$_DataGeneral(
+    return _then(_$DataGeneralImpl(
       metaRead: freezed == metaRead
           ? _value.metaRead
           : metaRead // ignore: cast_nullable_to_non_nullable
@@ -668,8 +670,8 @@ class __$$_DataGeneralCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DataGeneral implements _DataGeneral {
-  const _$_DataGeneral(
+class _$DataGeneralImpl implements _DataGeneral {
+  const _$DataGeneralImpl(
       {@JsonKey(name: "meta_read") this.metaRead,
       @JsonKey(name: "meta_delete") this.metaDelete,
       @JsonKey(name: "meta_update") this.metaUpdate,
@@ -684,8 +686,8 @@ class _$_DataGeneral implements _DataGeneral {
       @JsonKey(name: "created_at") this.createdAt,
       @JsonKey(name: "updated_at") this.updatedAt});
 
-  factory _$_DataGeneral.fromJson(Map<String, dynamic> json) =>
-      _$$_DataGeneralFromJson(json);
+  factory _$DataGeneralImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DataGeneralImplFromJson(json);
 
   @override
   @JsonKey(name: "meta_read")
@@ -733,10 +735,10 @@ class _$_DataGeneral implements _DataGeneral {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DataGeneral &&
+            other is _$DataGeneralImpl &&
             (identical(other.metaRead, metaRead) ||
                 other.metaRead == metaRead) &&
             (identical(other.metaDelete, metaDelete) ||
@@ -779,12 +781,12 @@ class _$_DataGeneral implements _DataGeneral {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DataGeneralCopyWith<_$_DataGeneral> get copyWith =>
-      __$$_DataGeneralCopyWithImpl<_$_DataGeneral>(this, _$identity);
+  _$$DataGeneralImplCopyWith<_$DataGeneralImpl> get copyWith =>
+      __$$DataGeneralImplCopyWithImpl<_$DataGeneralImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DataGeneralToJson(
+    return _$$DataGeneralImplToJson(
       this,
     );
   }
@@ -792,22 +794,23 @@ class _$_DataGeneral implements _DataGeneral {
 
 abstract class _DataGeneral implements DataGeneral {
   const factory _DataGeneral(
-      {@JsonKey(name: "meta_read") final bool? metaRead,
-      @JsonKey(name: "meta_delete") final bool? metaDelete,
-      @JsonKey(name: "meta_update") final bool? metaUpdate,
-      @JsonKey(name: "meta_create") final bool? metaCreate,
-      @JsonKey(name: "id") final int? id,
-      @JsonKey(name: "group") final String? group,
-      @JsonKey(name: "key") final String? key,
-      @JsonKey(name: "kode") final String? kode,
-      @JsonKey(name: "value") final String? value,
-      @JsonKey(name: "value_2") final String? value2,
-      @JsonKey(name: "status") final String? status,
-      @JsonKey(name: "created_at") final String? createdAt,
-      @JsonKey(name: "updated_at") final String? updatedAt}) = _$_DataGeneral;
+          {@JsonKey(name: "meta_read") final bool? metaRead,
+          @JsonKey(name: "meta_delete") final bool? metaDelete,
+          @JsonKey(name: "meta_update") final bool? metaUpdate,
+          @JsonKey(name: "meta_create") final bool? metaCreate,
+          @JsonKey(name: "id") final int? id,
+          @JsonKey(name: "group") final String? group,
+          @JsonKey(name: "key") final String? key,
+          @JsonKey(name: "kode") final String? kode,
+          @JsonKey(name: "value") final String? value,
+          @JsonKey(name: "value_2") final String? value2,
+          @JsonKey(name: "status") final String? status,
+          @JsonKey(name: "created_at") final String? createdAt,
+          @JsonKey(name: "updated_at") final String? updatedAt}) =
+      _$DataGeneralImpl;
 
   factory _DataGeneral.fromJson(Map<String, dynamic> json) =
-      _$_DataGeneral.fromJson;
+      _$DataGeneralImpl.fromJson;
 
   @override
   @JsonKey(name: "meta_read")
@@ -850,6 +853,6 @@ abstract class _DataGeneral implements DataGeneral {
   String? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_DataGeneralCopyWith<_$_DataGeneral> get copyWith =>
+  _$$DataGeneralImplCopyWith<_$DataGeneralImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
-import 'package:becca_supir/src/core/utils/dialogs.dart';
-import 'package:becca_supir/src/presentation/blocs/auth/auth_bloc.dart';
+import 'package:soa_jpt/src/core/utils/dialogs.dart';
+import 'package:soa_jpt/src/presentation/blocs/auth/auth_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     "Nama Kamu",
                     style: Theme.of(context)
                         .textTheme
-                        .headline6
+                        .headlineMedium
                         ?.copyWith(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),
@@ -131,7 +131,7 @@ class _ProfileInfoRow extends StatelessWidget {
           ),
           Text(
             item.title,
-            style: Theme.of(context).textTheme.caption,
+            style: Theme.of(context).textTheme.titleSmall,
           )
         ],
       );
