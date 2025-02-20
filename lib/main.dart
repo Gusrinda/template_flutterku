@@ -1,18 +1,22 @@
 import 'dart:async';
 
 import 'package:get_storage/get_storage.dart';
-import 'package:soa_jpt/src/data/repository/general_repository_impl.dart';
-import 'package:soa_jpt/src/data/repository/packing_repository_impl.dart';
-import 'package:soa_jpt/src/data/repository/scan_repository_impl.dart';
-import 'package:soa_jpt/src/data/repository/user_repository_impl.dart';
-import 'package:soa_jpt/src/data/source/api_service.dart';
-import 'package:soa_jpt/src/domain/repository/general_repository.dart';
-import 'package:soa_jpt/src/domain/repository/packing_repository.dart';
-import 'package:soa_jpt/src/domain/repository/scan_repository.dart';
+import 'package:sulinda_sales/src/data/repository/general_repository_impl.dart';
+import 'package:sulinda_sales/src/data/repository/packing_repository_impl.dart';
+import 'package:sulinda_sales/src/data/repository/scan_repository_impl.dart';
+import 'package:sulinda_sales/src/data/repository/so_repository_impl.dart';
+import 'package:sulinda_sales/src/data/repository/user_repository_impl.dart';
+import 'package:sulinda_sales/src/data/repository/visiting_repository_impl.dart';
+import 'package:sulinda_sales/src/data/source/api_service.dart';
+import 'package:sulinda_sales/src/domain/repository/general_repository.dart';
+import 'package:sulinda_sales/src/domain/repository/packing_repository.dart';
+import 'package:sulinda_sales/src/domain/repository/scan_repository.dart';
+import 'package:sulinda_sales/src/domain/repository/so_repository.dart';
 
-import 'package:soa_jpt/src/domain/repository/user_repository.dart';
-import 'package:soa_jpt/src/presentation/blocs/auth/auth_bloc.dart';
-import 'package:soa_jpt/src/core/settings/settings_controller.dart';
+import 'package:sulinda_sales/src/domain/repository/user_repository.dart';
+import 'package:sulinda_sales/src/domain/repository/visiting_repository.dart';
+import 'package:sulinda_sales/src/presentation/blocs/auth/auth_bloc.dart';
+import 'package:sulinda_sales/src/core/settings/settings_controller.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_flutter_transformer/dio_flutter_transformer.dart';
 import 'package:flutter/foundation.dart';
@@ -57,8 +61,7 @@ void main() async {
 
   //Membuat Api Service Dahulu
   final dio = Dio()
-    ..options.baseUrl =
-        baseUrl ?? 'http://118.99.67.130:83/jptgrosir_v2/api.asmx'
+    ..options.baseUrl = baseUrl ?? 'http://118.99.67.131/SJS_API'
     // ..options.baseUrl = 'http://118.99.67.130:83/jptgrosir_v2/api.asmx'
     ..transformer = FlutterTransformer()
     ..options.validateStatus = (int? status) {
@@ -92,6 +95,9 @@ void main() async {
           RepositoryProvider<UserRepository>(
             create: (context) => UserRepositoryImpl(apiService),
           ),
+          RepositoryProvider<SoRepository>(
+            create: (context) => SoRepositoryImpl(apiService),
+          ),
           RepositoryProvider<GeneralRepository>(
             create: (context) => GeneralRepositoryImpl(apiService),
           ),
@@ -100,6 +106,9 @@ void main() async {
           ),
           RepositoryProvider<PackingRepository>(
             create: (context) => PackingRepositoryImpl(apiService),
+          ),
+          RepositoryProvider<VisitingRepository>(
+            create: (context) => VisitingRepositoryImpl(apiService),
           ),
         ],
         child: BlocProvider(

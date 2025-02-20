@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:soa_jpt/src/core/model/status_page.dart';
-import 'package:soa_jpt/src/data/models/response/general/response_master_general.dart';
-import 'package:soa_jpt/src/domain/domain.dart';
-import 'package:soa_jpt/src/domain/repository/general_repository.dart';
+import 'package:sulinda_sales/src/core/model/status_page.dart';
+import 'package:sulinda_sales/src/data/models/response/general/response_master_general.dart';
+import 'package:sulinda_sales/src/domain/domain.dart';
+import 'package:sulinda_sales/src/domain/repository/general_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';

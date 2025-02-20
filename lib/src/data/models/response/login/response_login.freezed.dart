@@ -20,8 +20,12 @@ ResponseLogin _$ResponseLoginFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ResponseLogin {
-  @JsonKey(name: "msgServer")
-  List<DataUserLogin>? get msgServer => throw _privateConstructorUsedError;
+  @JsonKey(name: "success")
+  bool? get success => throw _privateConstructorUsedError;
+  @JsonKey(name: "message")
+  dynamic get message => throw _privateConstructorUsedError;
+  @JsonKey(name: "data")
+  DataUserLogin? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +39,12 @@ abstract class $ResponseLoginCopyWith<$Res> {
           ResponseLogin value, $Res Function(ResponseLogin) then) =
       _$ResponseLoginCopyWithImpl<$Res, ResponseLogin>;
   @useResult
-  $Res call({@JsonKey(name: "msgServer") List<DataUserLogin>? msgServer});
+  $Res call(
+      {@JsonKey(name: "success") bool? success,
+      @JsonKey(name: "message") dynamic message,
+      @JsonKey(name: "data") DataUserLogin? data});
+
+  $DataUserLoginCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -51,14 +60,36 @@ class _$ResponseLoginCopyWithImpl<$Res, $Val extends ResponseLogin>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? msgServer = freezed,
+    Object? success = freezed,
+    Object? message = freezed,
+    Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      msgServer: freezed == msgServer
-          ? _value.msgServer
-          : msgServer // ignore: cast_nullable_to_non_nullable
-              as List<DataUserLogin>?,
+      success: freezed == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as DataUserLogin?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DataUserLoginCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $DataUserLoginCopyWith<$Res>(_value.data!, (value) {
+      return _then(_value.copyWith(data: value) as $Val);
+    });
   }
 }
 
@@ -70,7 +101,13 @@ abstract class _$$ResponseLoginImplCopyWith<$Res>
       __$$ResponseLoginImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: "msgServer") List<DataUserLogin>? msgServer});
+  $Res call(
+      {@JsonKey(name: "success") bool? success,
+      @JsonKey(name: "message") dynamic message,
+      @JsonKey(name: "data") DataUserLogin? data});
+
+  @override
+  $DataUserLoginCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -84,13 +121,23 @@ class __$$ResponseLoginImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? msgServer = freezed,
+    Object? success = freezed,
+    Object? message = freezed,
+    Object? data = freezed,
   }) {
     return _then(_$ResponseLoginImpl(
-      msgServer: freezed == msgServer
-          ? _value._msgServer
-          : msgServer // ignore: cast_nullable_to_non_nullable
-              as List<DataUserLogin>?,
+      success: freezed == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as DataUserLogin?,
     ));
   }
 }
@@ -99,26 +146,26 @@ class __$$ResponseLoginImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ResponseLoginImpl implements _ResponseLogin {
   const _$ResponseLoginImpl(
-      {@JsonKey(name: "msgServer") final List<DataUserLogin>? msgServer})
-      : _msgServer = msgServer;
+      {@JsonKey(name: "success") this.success,
+      @JsonKey(name: "message") this.message,
+      @JsonKey(name: "data") this.data});
 
   factory _$ResponseLoginImpl.fromJson(Map<String, dynamic> json) =>
       _$$ResponseLoginImplFromJson(json);
 
-  final List<DataUserLogin>? _msgServer;
   @override
-  @JsonKey(name: "msgServer")
-  List<DataUserLogin>? get msgServer {
-    final value = _msgServer;
-    if (value == null) return null;
-    if (_msgServer is EqualUnmodifiableListView) return _msgServer;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  @JsonKey(name: "success")
+  final bool? success;
+  @override
+  @JsonKey(name: "message")
+  final dynamic message;
+  @override
+  @JsonKey(name: "data")
+  final DataUserLogin? data;
 
   @override
   String toString() {
-    return 'ResponseLogin(msgServer: $msgServer)';
+    return 'ResponseLogin(success: $success, message: $message, data: $data)';
   }
 
   @override
@@ -126,14 +173,15 @@ class _$ResponseLoginImpl implements _ResponseLogin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResponseLoginImpl &&
-            const DeepCollectionEquality()
-                .equals(other._msgServer, _msgServer));
+            (identical(other.success, success) || other.success == success) &&
+            const DeepCollectionEquality().equals(other.message, message) &&
+            (identical(other.data, data) || other.data == data));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_msgServer));
+  int get hashCode => Object.hash(
+      runtimeType, success, const DeepCollectionEquality().hash(message), data);
 
   @JsonKey(ignore: true)
   @override
@@ -151,15 +199,22 @@ class _$ResponseLoginImpl implements _ResponseLogin {
 
 abstract class _ResponseLogin implements ResponseLogin {
   const factory _ResponseLogin(
-          {@JsonKey(name: "msgServer") final List<DataUserLogin>? msgServer}) =
-      _$ResponseLoginImpl;
+      {@JsonKey(name: "success") final bool? success,
+      @JsonKey(name: "message") final dynamic message,
+      @JsonKey(name: "data") final DataUserLogin? data}) = _$ResponseLoginImpl;
 
   factory _ResponseLogin.fromJson(Map<String, dynamic> json) =
       _$ResponseLoginImpl.fromJson;
 
   @override
-  @JsonKey(name: "msgServer")
-  List<DataUserLogin>? get msgServer;
+  @JsonKey(name: "success")
+  bool? get success;
+  @override
+  @JsonKey(name: "message")
+  dynamic get message;
+  @override
+  @JsonKey(name: "data")
+  DataUserLogin? get data;
   @override
   @JsonKey(ignore: true)
   _$$ResponseLoginImplCopyWith<_$ResponseLoginImpl> get copyWith =>
@@ -172,20 +227,18 @@ DataUserLogin _$DataUserLoginFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DataUserLogin {
-  @JsonKey(name: "USERID")
-  String? get userid => throw _privateConstructorUsedError;
-  @JsonKey(name: "idSales")
-  int? get idSales => throw _privateConstructorUsedError;
-  @JsonKey(name: "name")
-  String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: "profpass")
-  String? get profpass => throw _privateConstructorUsedError;
-  @JsonKey(name: "email")
-  String? get email => throw _privateConstructorUsedError;
-  @JsonKey(name: "address")
-  String? get address => throw _privateConstructorUsedError;
-  @JsonKey(name: "activeflag")
-  String? get activeflag => throw _privateConstructorUsedError;
+  @JsonKey(name: "user_name")
+  String? get userName => throw _privateConstructorUsedError;
+  @JsonKey(name: "user_type")
+  String? get userType => throw _privateConstructorUsedError;
+  @JsonKey(name: "employee_id")
+  int? get employeeId => throw _privateConstructorUsedError;
+  @JsonKey(name: "user_id")
+  int? get userId => throw _privateConstructorUsedError;
+  @JsonKey(name: "token")
+  String? get token => throw _privateConstructorUsedError;
+  @JsonKey(name: "expires")
+  String? get expires => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -200,13 +253,12 @@ abstract class $DataUserLoginCopyWith<$Res> {
       _$DataUserLoginCopyWithImpl<$Res, DataUserLogin>;
   @useResult
   $Res call(
-      {@JsonKey(name: "USERID") String? userid,
-      @JsonKey(name: "idSales") int? idSales,
-      @JsonKey(name: "name") String? name,
-      @JsonKey(name: "profpass") String? profpass,
-      @JsonKey(name: "email") String? email,
-      @JsonKey(name: "address") String? address,
-      @JsonKey(name: "activeflag") String? activeflag});
+      {@JsonKey(name: "user_name") String? userName,
+      @JsonKey(name: "user_type") String? userType,
+      @JsonKey(name: "employee_id") int? employeeId,
+      @JsonKey(name: "user_id") int? userId,
+      @JsonKey(name: "token") String? token,
+      @JsonKey(name: "expires") String? expires});
 }
 
 /// @nodoc
@@ -222,42 +274,37 @@ class _$DataUserLoginCopyWithImpl<$Res, $Val extends DataUserLogin>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userid = freezed,
-    Object? idSales = freezed,
-    Object? name = freezed,
-    Object? profpass = freezed,
-    Object? email = freezed,
-    Object? address = freezed,
-    Object? activeflag = freezed,
+    Object? userName = freezed,
+    Object? userType = freezed,
+    Object? employeeId = freezed,
+    Object? userId = freezed,
+    Object? token = freezed,
+    Object? expires = freezed,
   }) {
     return _then(_value.copyWith(
-      userid: freezed == userid
-          ? _value.userid
-          : userid // ignore: cast_nullable_to_non_nullable
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as String?,
-      idSales: freezed == idSales
-          ? _value.idSales
-          : idSales // ignore: cast_nullable_to_non_nullable
+      userType: freezed == userType
+          ? _value.userType
+          : userType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      employeeId: freezed == employeeId
+          ? _value.employeeId
+          : employeeId // ignore: cast_nullable_to_non_nullable
               as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
               as String?,
-      profpass: freezed == profpass
-          ? _value.profpass
-          : profpass // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      activeflag: freezed == activeflag
-          ? _value.activeflag
-          : activeflag // ignore: cast_nullable_to_non_nullable
+      expires: freezed == expires
+          ? _value.expires
+          : expires // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -272,13 +319,12 @@ abstract class _$$DataUserLoginImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "USERID") String? userid,
-      @JsonKey(name: "idSales") int? idSales,
-      @JsonKey(name: "name") String? name,
-      @JsonKey(name: "profpass") String? profpass,
-      @JsonKey(name: "email") String? email,
-      @JsonKey(name: "address") String? address,
-      @JsonKey(name: "activeflag") String? activeflag});
+      {@JsonKey(name: "user_name") String? userName,
+      @JsonKey(name: "user_type") String? userType,
+      @JsonKey(name: "employee_id") int? employeeId,
+      @JsonKey(name: "user_id") int? userId,
+      @JsonKey(name: "token") String? token,
+      @JsonKey(name: "expires") String? expires});
 }
 
 /// @nodoc
@@ -292,42 +338,37 @@ class __$$DataUserLoginImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userid = freezed,
-    Object? idSales = freezed,
-    Object? name = freezed,
-    Object? profpass = freezed,
-    Object? email = freezed,
-    Object? address = freezed,
-    Object? activeflag = freezed,
+    Object? userName = freezed,
+    Object? userType = freezed,
+    Object? employeeId = freezed,
+    Object? userId = freezed,
+    Object? token = freezed,
+    Object? expires = freezed,
   }) {
     return _then(_$DataUserLoginImpl(
-      userid: freezed == userid
-          ? _value.userid
-          : userid // ignore: cast_nullable_to_non_nullable
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as String?,
-      idSales: freezed == idSales
-          ? _value.idSales
-          : idSales // ignore: cast_nullable_to_non_nullable
+      userType: freezed == userType
+          ? _value.userType
+          : userType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      employeeId: freezed == employeeId
+          ? _value.employeeId
+          : employeeId // ignore: cast_nullable_to_non_nullable
               as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
               as String?,
-      profpass: freezed == profpass
-          ? _value.profpass
-          : profpass // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      activeflag: freezed == activeflag
-          ? _value.activeflag
-          : activeflag // ignore: cast_nullable_to_non_nullable
+      expires: freezed == expires
+          ? _value.expires
+          : expires // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -337,42 +378,38 @@ class __$$DataUserLoginImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DataUserLoginImpl implements _DataUserLogin {
   const _$DataUserLoginImpl(
-      {@JsonKey(name: "USERID") this.userid,
-      @JsonKey(name: "idSales") this.idSales,
-      @JsonKey(name: "name") this.name,
-      @JsonKey(name: "profpass") this.profpass,
-      @JsonKey(name: "email") this.email,
-      @JsonKey(name: "address") this.address,
-      @JsonKey(name: "activeflag") this.activeflag});
+      {@JsonKey(name: "user_name") this.userName,
+      @JsonKey(name: "user_type") this.userType,
+      @JsonKey(name: "employee_id") this.employeeId,
+      @JsonKey(name: "user_id") this.userId,
+      @JsonKey(name: "token") this.token,
+      @JsonKey(name: "expires") this.expires});
 
   factory _$DataUserLoginImpl.fromJson(Map<String, dynamic> json) =>
       _$$DataUserLoginImplFromJson(json);
 
   @override
-  @JsonKey(name: "USERID")
-  final String? userid;
+  @JsonKey(name: "user_name")
+  final String? userName;
   @override
-  @JsonKey(name: "idSales")
-  final int? idSales;
+  @JsonKey(name: "user_type")
+  final String? userType;
   @override
-  @JsonKey(name: "name")
-  final String? name;
+  @JsonKey(name: "employee_id")
+  final int? employeeId;
   @override
-  @JsonKey(name: "profpass")
-  final String? profpass;
+  @JsonKey(name: "user_id")
+  final int? userId;
   @override
-  @JsonKey(name: "email")
-  final String? email;
+  @JsonKey(name: "token")
+  final String? token;
   @override
-  @JsonKey(name: "address")
-  final String? address;
-  @override
-  @JsonKey(name: "activeflag")
-  final String? activeflag;
+  @JsonKey(name: "expires")
+  final String? expires;
 
   @override
   String toString() {
-    return 'DataUserLogin(userid: $userid, idSales: $idSales, name: $name, profpass: $profpass, email: $email, address: $address, activeflag: $activeflag)';
+    return 'DataUserLogin(userName: $userName, userType: $userType, employeeId: $employeeId, userId: $userId, token: $token, expires: $expires)';
   }
 
   @override
@@ -380,21 +417,21 @@ class _$DataUserLoginImpl implements _DataUserLogin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DataUserLoginImpl &&
-            (identical(other.userid, userid) || other.userid == userid) &&
-            (identical(other.idSales, idSales) || other.idSales == idSales) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.profpass, profpass) ||
-                other.profpass == profpass) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.address, address) || other.address == address) &&
-            (identical(other.activeflag, activeflag) ||
-                other.activeflag == activeflag));
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.userType, userType) ||
+                other.userType == userType) &&
+            (identical(other.employeeId, employeeId) ||
+                other.employeeId == employeeId) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.expires, expires) || other.expires == expires));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, userid, idSales, name, profpass, email, address, activeflag);
+      runtimeType, userName, userType, employeeId, userId, token, expires);
 
   @JsonKey(ignore: true)
   @override
@@ -412,39 +449,34 @@ class _$DataUserLoginImpl implements _DataUserLogin {
 
 abstract class _DataUserLogin implements DataUserLogin {
   const factory _DataUserLogin(
-          {@JsonKey(name: "USERID") final String? userid,
-          @JsonKey(name: "idSales") final int? idSales,
-          @JsonKey(name: "name") final String? name,
-          @JsonKey(name: "profpass") final String? profpass,
-          @JsonKey(name: "email") final String? email,
-          @JsonKey(name: "address") final String? address,
-          @JsonKey(name: "activeflag") final String? activeflag}) =
-      _$DataUserLoginImpl;
+      {@JsonKey(name: "user_name") final String? userName,
+      @JsonKey(name: "user_type") final String? userType,
+      @JsonKey(name: "employee_id") final int? employeeId,
+      @JsonKey(name: "user_id") final int? userId,
+      @JsonKey(name: "token") final String? token,
+      @JsonKey(name: "expires") final String? expires}) = _$DataUserLoginImpl;
 
   factory _DataUserLogin.fromJson(Map<String, dynamic> json) =
       _$DataUserLoginImpl.fromJson;
 
   @override
-  @JsonKey(name: "USERID")
-  String? get userid;
+  @JsonKey(name: "user_name")
+  String? get userName;
   @override
-  @JsonKey(name: "idSales")
-  int? get idSales;
+  @JsonKey(name: "user_type")
+  String? get userType;
   @override
-  @JsonKey(name: "name")
-  String? get name;
+  @JsonKey(name: "employee_id")
+  int? get employeeId;
   @override
-  @JsonKey(name: "profpass")
-  String? get profpass;
+  @JsonKey(name: "user_id")
+  int? get userId;
   @override
-  @JsonKey(name: "email")
-  String? get email;
+  @JsonKey(name: "token")
+  String? get token;
   @override
-  @JsonKey(name: "address")
-  String? get address;
-  @override
-  @JsonKey(name: "activeflag")
-  String? get activeflag;
+  @JsonKey(name: "expires")
+  String? get expires;
   @override
   @JsonKey(ignore: true)
   _$$DataUserLoginImplCopyWith<_$DataUserLoginImpl> get copyWith =>

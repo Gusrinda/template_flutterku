@@ -1,7 +1,7 @@
-import 'package:soa_jpt/src/core/model/data_materi.dart';
-import 'package:soa_jpt/src/presentation/views/materi/materi_page/materi_list_data.dart';
-import 'package:soa_jpt/src/presentation/views/materi/materi_page/materi_paginate_data.dart';
-import 'package:soa_jpt/src/presentation/views/materi/materi_page/materi_search_data.dart';
+import 'package:sulinda_sales/src/core/model/data_materi.dart';
+import 'package:sulinda_sales/src/presentation/views/materi/materi_page/materi_list_data.dart';
+import 'package:sulinda_sales/src/presentation/views/materi/materi_page/materi_paginate_data.dart';
+import 'package:sulinda_sales/src/presentation/views/materi/materi_page/materi_search_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

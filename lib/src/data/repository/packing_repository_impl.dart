@@ -1,11 +1,11 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:soa_jpt/src/data/models/response/packing/response_detail_packing.dart';
-import 'package:soa_jpt/src/data/models/response/packing/response_list_packing.dart';
-import 'package:soa_jpt/src/data/source/api_service.dart';
-import 'package:soa_jpt/src/domain/exception/api_exception.dart';
-import 'package:soa_jpt/src/domain/repository/packing_repository.dart';
+import 'package:sulinda_sales/src/data/models/response/packing/response_detail_packing.dart';
+import 'package:sulinda_sales/src/data/models/response/packing/response_list_packing.dart';
+import 'package:sulinda_sales/src/data/source/api_service.dart';
+import 'package:sulinda_sales/src/domain/exception/api_exception.dart';
+import 'package:sulinda_sales/src/domain/repository/packing_repository.dart';
 
 class PackingRepositoryImpl implements PackingRepository {
   PackingRepositoryImpl(this._apiService);

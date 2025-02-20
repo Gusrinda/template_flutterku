@@ -2,10 +2,23 @@ part of 'api_service.dart';
 
 mixin User {
   @FormUrlEncoded()
-  @POST("/checker_user_login")
+  @POST("/api/auth/login")
   Future<HttpResponse> doLoginUser(
-      {
-      // @Body() required Map<String, dynamic> request,
-      @Field("username") required String username,
-      @Field("password") required String password});
+      {@Field("Username") required String username,
+      @Field("Password") required String password});
+
+  @GET("/GetSummarySO")
+  Future<HttpResponse?> getSummarySO({
+    @Header('Authorization') required String bearerToken,
+  });
+
+  @GET("/SalesActivity/GetTodayTask")
+  Future<HttpResponse?> getTodayTask({
+    @Header('Authorization') required String bearerToken,
+  });
+
+  @GET("/SalesActivity/GetOngoingTask")
+  Future<HttpResponse?> getOnGoingTask({
+    @Header('Authorization') required String bearerToken,
+  });
 }

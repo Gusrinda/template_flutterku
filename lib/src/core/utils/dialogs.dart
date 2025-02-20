@@ -1,5 +1,5 @@
-import 'package:soa_jpt/src/core/assets/assets.gen.dart';
-import 'package:soa_jpt/src/core/config/constant.dart';
+import 'package:sulinda_sales/src/core/assets/assets.gen.dart';
+import 'package:sulinda_sales/src/core/config/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

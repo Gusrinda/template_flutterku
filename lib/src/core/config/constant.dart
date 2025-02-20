@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 const Color primaryColor = Color(0xFF244065);
 const Color bgColor = Color(0xFFFFFFFF);
-const Color buttonColor = Color(0xFF244065);
+// const Color buttonColor = Color(0xFF244065);
+const Color buttonColor = Color(0xFF4F772D);
 
 const double defaultPadding = 10.0;
 const double defaultBorderRadius = 8.0;
@@ -20,8 +21,12 @@ const Color themeNavy = Color(0xFF244065);
 // const Color themeOrange = Color(0xFF0068D4);
 // const Color themeOrangeBg = Color(0xFF015AFF);
 
-const Color themeOrange = Color(0xFFFFA81B);
-const Color themeOrangeBg = Color(0xFFFFA81B);
+// const Color themeOrange = Color(0xFFFFA81B);
+// const Color themeOrangeBg = Color(0xFFFFA81B);
+
+
+const Color themeHijau = Color(0xFF4F772D);
+const Color themeHijauBg = Color(0xFF8CB16D);
 const Color themeBrown = Color(0xFFDAA200);
 
 const Color themeBgCard = Color(0xFFF0F5FF);

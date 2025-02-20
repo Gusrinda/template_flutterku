@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:soa_jpt/src/core/config/constant.dart';
-import 'package:soa_jpt/src/core/config/theme_colors.dart';
+import 'package:sulinda_sales/src/core/config/constant.dart';
+import 'package:sulinda_sales/src/core/config/theme_colors.dart';
 
 class CustomDialogPayment extends StatefulWidget {
   const CustomDialogPayment({super.key, required this.isSukses});

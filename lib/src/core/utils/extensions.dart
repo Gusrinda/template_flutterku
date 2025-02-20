@@ -1,11 +1,27 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hud/flutter_hud.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sulinda_sales/src/core/config/theme_colors.dart';
+import 'package:sulinda_sales/src/core/model/toast_data.dart';
+import 'package:sulinda_sales/src/core/utils/bottom_sheets.dart';
+import 'package:sulinda_sales/src/presentation/widgets/card_widget.dart';
 
-import '../../presentation/widgets/card_widget.dart';
-import '../config/constant.dart';
-import '../config/theme_colors.dart';
-import '../model/toast_data.dart';
-import 'bottom_sheets.dart';
+extension TimeOfDayDescription on TimeOfDay {
+  String get description {
+    String addLeadingZeroIfNeeded(int value) {
+      if (value < 10) {
+        return '0$value';
+      }
+      return value.toString();
+    }
+
+    final String hourLabel = addLeadingZeroIfNeeded(hour);
+    final String minuteLabel = addLeadingZeroIfNeeded(minute);
+
+    return '$hourLabel:$minuteLabel';
+  }
+}
 
 extension ScaffoldMessengerStateExtension on ScaffoldMessengerState {
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBarContent(
@@ -34,7 +50,7 @@ extension ScaffoldMessengerStateExtension on ScaffoldMessengerState {
             const SizedBox(width: 8),
             const Icon(
               Icons.check_circle_rounded,
-              color: themeNavy,
+              color: ThemeColors.green,
             ),
           ],
         ),
@@ -138,9 +154,9 @@ extension MyBuildContext on BuildContext {
                 onPressed: () {
                   Navigator.pop(context, false);
                 },
-                child: Text(negativeButton, style: TextStyle(color: Colors.red),),
+                child: Text(negativeButton),
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context, true);
                 },
@@ -151,54 +167,75 @@ extension MyBuildContext on BuildContext {
         });
   }
 
-  Future<String?> showInputNomorTelfonDialog({
-    required String title,
-    required Object message,
-    required String negativeButton,
-    required String positiveButton,
+  Future<bool> showVerifikasiDialog({
+    required BuildContext context,
+    String? title,
+    required String message,
+    String negativeButton = 'Batal',
+    String positiveButton = 'Ya',
   }) async {
-    final TextEditingController _textFieldController = TextEditingController();
-
-    assert(
-      message is String || message is Text,
-      'Use message type either String or Text widget',
-    );
     return await showDialog(
-        context: this,
-        builder: (context) {
-          String abc = "";
-
-          return AlertDialog(
-            title: Text(title),
-            content: TextField(
-              onChanged: (value) {
-                abc = value;
-              },
-              controller: _textFieldController,
-              decoration: InputDecoration(hintText: message.toString()),
+      context: context,
+      barrierColor: Colors.black54,
+      builder: (context) {
+        return Dialog(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.sp)),
+          ),
+          child: Container(
+            padding: EdgeInsets.fromLTRB(24.sp, 24.sp, 24.sp, 16.sp),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (title != null) ...{
+                  Text(
+                    title,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w700,
+                      color: ThemeColors.blackPrimary,
+                    ),
+                  ),
+                  SizedBox(height: 16.sp),
+                },
+                Text(
+                  message,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 12.sp),
+                ),
+                SizedBox(height: 24.sp),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () => Navigator.pop(context, false),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey.withOpacity(0.5),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12))),
+                        child: Text(negativeButton),
+                      ),
+                    ),
+                    SizedBox(width: 16.sp),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () => Navigator.pop(context, true),
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12))),
+                        child: Text(positiveButton),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            actionsPadding: const EdgeInsets.only(right: 8),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context, "");
-                },
-                child: Text(negativeButton),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  if (abc.isEmpty) {
-                    context.showErrorToast("Nomor Kosong !");
-                    return;
-                  }
-
-                  Navigator.pop(context, abc);
-                },
-                child: Text(positiveButton),
-              ),
-            ],
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 
   Future<bool?> showConfirmationBottomSheet({
@@ -234,7 +271,7 @@ extension MyBuildContext on BuildContext {
                     )
                   : Image.asset(
                       image,
-                      width: 100,
+                      width: imageWidth ?? constraints.maxWidth * 0.6,
                     ),
             ),
             const SizedBox(height: 32),
@@ -262,22 +299,13 @@ extension MyBuildContext on BuildContext {
             ),
             const SizedBox(height: 32),
             SafeArea(
-              minimum: const EdgeInsets.only(bottom: 32),
+              minimum: const EdgeInsets.only(bottom: 16),
               child: Row(
                 children: [
                   const SizedBox(width: 16),
                   Expanded(
                     child: OutlinedButton(
-                      child: Text(
-                        negativeButton,
-                        style: TextStyle(color: ThemeColors.navy6),
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 12),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)
-                        ),
-                      ),
+                      child: Text(negativeButton),
                       onPressed: () {
                         Navigator.pop(this, false);
                       },
@@ -286,12 +314,6 @@ extension MyBuildContext on BuildContext {
                   const SizedBox(width: 16),
                   Expanded(
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(vertical: 12),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                          backgroundColor: themeOrange),
                       child: Text(positiveButton),
                       onPressed: () {
                         Navigator.pop(this, true);

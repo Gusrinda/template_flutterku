@@ -6,18 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:formz/formz.dart';
-import 'package:soa_jpt/src/core/assets/assets.gen.dart';
-import 'package:soa_jpt/src/core/config/constant.dart';
-import 'package:soa_jpt/src/core/model/form_text_input.dart';
-import 'package:soa_jpt/src/core/model/status_page.dart';
-import 'package:soa_jpt/src/core/utils/extensions.dart';
-import 'package:soa_jpt/src/core/utils/generators.dart';
-import 'package:soa_jpt/src/data/models/dummy/model_dummy_barang.dart';
-import 'package:soa_jpt/src/data/models/response/packing/response_detail_packing.dart';
-import 'package:soa_jpt/src/data/models/response/packing/response_list_packing.dart';
-import 'package:soa_jpt/src/presentation/blocs/packing/detail/bloc/packing_detail_bloc.dart';
-import 'package:soa_jpt/src/presentation/views/home/dashboard.dart';
-import 'package:soa_jpt/src/presentation/widgets/text_field_widget.dart';
+import 'package:sulinda_sales/src/core/assets/assets.gen.dart';
+import 'package:sulinda_sales/src/core/config/constant.dart';
+import 'package:sulinda_sales/src/core/model/form_text_input.dart';
+import 'package:sulinda_sales/src/core/model/status_page.dart';
+import 'package:sulinda_sales/src/core/utils/extensions.dart';
+import 'package:sulinda_sales/src/core/utils/generators.dart';
+import 'package:sulinda_sales/src/data/models/dummy/model_dummy_barang.dart';
+import 'package:sulinda_sales/src/data/models/response/packing/response_detail_packing.dart';
+import 'package:sulinda_sales/src/data/models/response/packing/response_list_packing.dart';
+import 'package:sulinda_sales/src/presentation/blocs/packing/detail/bloc/packing_detail_bloc.dart';
+import 'package:sulinda_sales/src/presentation/views/home/dashboard.dart';
+import 'package:sulinda_sales/src/presentation/widgets/text_field_widget.dart';
 
 class PackingScanView extends StatefulWidget {
   const PackingScanView(

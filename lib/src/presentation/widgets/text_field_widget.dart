@@ -123,7 +123,7 @@ class FormzTextField extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
-          borderSide: const BorderSide(color: themeFontDefault),
+          borderSide: const BorderSide(color: themeHijau),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -224,7 +224,7 @@ class FormzDropDownField extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final TextCapitalization textCapitalization;
-  final ValueChanged<String>? onChanged;
+  final ValueChanged<String?>? onChanged;
   final ValueChanged<String>? onSubmitted;
   final VoidCallback? onTap;
   final TextStyle? style;
@@ -294,15 +294,10 @@ class FormzDropDownField extends StatelessWidget {
                       value: selValue,
                       icon: ImageIcon(
                         AssetImage(Assets.icons.arrowDownCircle.path),
-                        color: ThemeColors.navy6,
+                        color: themeHijau,
                       ),
                       isDense: true,
-                      onChanged: (value) {
-                        print("CHANGED : $value");
-                        switch (typeDropdown) {
-                          default:
-                        }
-                      },
+                      onChanged: onChanged,
                       items: value.map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,

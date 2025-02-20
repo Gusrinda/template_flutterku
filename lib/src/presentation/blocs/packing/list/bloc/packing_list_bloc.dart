@@ -3,9 +3,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:soa_jpt/src/core/model/status_page.dart';
-import 'package:soa_jpt/src/data/models/response/packing/response_list_packing.dart';
-import 'package:soa_jpt/src/domain/repository/packing_repository.dart';
+import 'package:sulinda_sales/src/core/model/status_page.dart';
+import 'package:sulinda_sales/src/data/models/response/packing/response_list_packing.dart';
+import 'package:sulinda_sales/src/domain/repository/packing_repository.dart';
 
 part 'packing_list_event.dart';
 part 'packing_list_state.dart';

@@ -5,11 +5,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:soa_jpt/src/core/model/status_page.dart';
-import 'package:soa_jpt/src/data/models/request/request_save_checker.dart';
-import 'package:soa_jpt/src/data/models/response/scan/response_checker_detail.dart';
-import 'package:soa_jpt/src/data/models/response/scan/response_checker_so.dart';
-import 'package:soa_jpt/src/domain/repository/scan_repository.dart';
+import 'package:sulinda_sales/src/core/model/status_page.dart';
+import 'package:sulinda_sales/src/data/models/request/request_save_checker.dart';
+import 'package:sulinda_sales/src/data/models/response/scan/response_checker_detail.dart';
+import 'package:sulinda_sales/src/data/models/response/scan/response_checker_so.dart';
+import 'package:sulinda_sales/src/domain/repository/scan_repository.dart';
 
 part 'scan_barcode_event.dart';
 part 'scan_barcode_state.dart';

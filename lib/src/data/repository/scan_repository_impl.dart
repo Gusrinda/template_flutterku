@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:soa_jpt/src/data/models/request/request_save_checker.dart';
-import 'package:soa_jpt/src/data/models/response/scan/response_checker_detail.dart';
-import 'package:soa_jpt/src/data/models/response/scan/response_checker_so.dart';
-import 'package:soa_jpt/src/data/source/api_service.dart';
-import 'package:soa_jpt/src/domain/exception/api_exception.dart';
-import 'package:soa_jpt/src/domain/repository/scan_repository.dart';
+import 'package:sulinda_sales/src/data/models/request/request_save_checker.dart';
+import 'package:sulinda_sales/src/data/models/response/scan/response_checker_detail.dart';
+import 'package:sulinda_sales/src/data/models/response/scan/response_checker_so.dart';
+import 'package:sulinda_sales/src/data/source/api_service.dart';
+import 'package:sulinda_sales/src/domain/exception/api_exception.dart';
+import 'package:sulinda_sales/src/domain/repository/scan_repository.dart';
 
 class ScanRepositoryImpl implements ScanRepository {
   ScanRepositoryImpl(this._apiService);

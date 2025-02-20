@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:soa_jpt/src/core/config/theme_colors.dart';
-import 'package:soa_jpt/src/core/model/menu_model.dart';
-import 'package:soa_jpt/src/presentation/views/packing/packing_history_view.dart';
-import 'package:soa_jpt/src/presentation/views/packing/packing_list_view.dart';
-import 'package:soa_jpt/src/presentation/views/scanner/scan_barcode_view.dart';
+import 'package:sulinda_sales/src/core/config/theme_colors.dart';
+import 'package:sulinda_sales/src/core/model/menu_model.dart';
+import 'package:sulinda_sales/src/presentation/views/packing/packing_history_view.dart';
+import 'package:sulinda_sales/src/presentation/views/packing/packing_list_view.dart';
+import 'package:sulinda_sales/src/presentation/views/scanner/scan_barcode_view.dart';
 
 class MenuPackingView extends StatefulWidget {
   const MenuPackingView({super.key});

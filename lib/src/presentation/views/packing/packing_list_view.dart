@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:soa_jpt/src/core/assets/assets.gen.dart';
-import 'package:soa_jpt/src/core/model/status_page.dart';
-import 'package:soa_jpt/src/core/utils/formatter.dart';
-import 'package:soa_jpt/src/data/models/response/packing/response_list_packing.dart';
-import 'package:soa_jpt/src/presentation/blocs/packing/list/bloc/packing_list_bloc.dart';
-import 'package:soa_jpt/src/presentation/views/packing/packing_scan_view.dart';
-import 'package:soa_jpt/src/presentation/widgets/text_field_widget.dart';
+import 'package:sulinda_sales/src/core/assets/assets.gen.dart';
+import 'package:sulinda_sales/src/core/model/status_page.dart';
+import 'package:sulinda_sales/src/core/utils/formatter.dart';
+import 'package:sulinda_sales/src/data/models/response/packing/response_list_packing.dart';
+import 'package:sulinda_sales/src/presentation/blocs/packing/list/bloc/packing_list_bloc.dart';
+import 'package:sulinda_sales/src/presentation/views/packing/packing_scan_view.dart';
+import 'package:sulinda_sales/src/presentation/widgets/text_field_widget.dart';
 
 class PackingListView extends StatefulWidget {
   const PackingListView({super.key});

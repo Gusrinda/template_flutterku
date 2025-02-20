@@ -29,7 +29,7 @@ def build_flutter_apk():
         original_apk_name = "build/app/outputs/flutter-apk/app-release.apk"
         
         # Ganti dengan nama APK yang diinginkan
-        new_apk_name = "SOA JPT RELEASE.apk"
+        new_apk_name = "Sulinda Sales - RELEASE.apk"
 
         # Pindahkan atau ubah nama file APK yang baru dibangun
         # shutil.move(original_apk_name, new_apk_name)

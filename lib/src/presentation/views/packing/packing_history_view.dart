@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:soa_jpt/src/core/utils/formatter.dart';
-import 'package:soa_jpt/src/presentation/views/packing/packing_scan_view.dart';
+import 'package:sulinda_sales/src/core/utils/formatter.dart';
+import 'package:sulinda_sales/src/presentation/views/packing/packing_scan_view.dart';
 
 class PackingHistoryView extends StatefulWidget {
   const PackingHistoryView({super.key});

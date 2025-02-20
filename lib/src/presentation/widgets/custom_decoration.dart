@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:soa_jpt/src/core/config/theme_colors.dart';
+import 'package:sulinda_sales/src/core/config/theme_colors.dart';
 
 class CustomDecoration extends Decoration {
   final Color? backgroundColor;

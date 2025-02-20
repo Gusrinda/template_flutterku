@@ -1,4 +1,4 @@
-import 'package:soa_jpt/src/core/model/data_materi.dart';
+import 'package:sulinda_sales/src/core/model/data_materi.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

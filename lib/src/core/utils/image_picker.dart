@@ -1,4 +1,4 @@
-// import 'package:soa_jpt/src/core/utils/extensions.dart';
+// import 'package:sulinda_sales/src/core/utils/extensions.dart';
 // import 'package:flimer/flimer.dart';
 // import 'package:flutter/material.dart';
 

@@ -27,8 +27,9 @@ class AppLogo extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                'SOA JPT',
-                style: GoogleFonts.pacifico(
+                'SULINDA SALES\nACTIVITY',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
                   textStyle: const TextStyle(
                     color: Colors.blueGrey,
                     fontSize: 30.0,

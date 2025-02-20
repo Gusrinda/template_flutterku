@@ -9,21 +9,21 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:formz/formz.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:soa_jpt/src/core/assets/assets.gen.dart';
-import 'package:soa_jpt/src/core/config/constant.dart';
-import 'package:soa_jpt/src/core/model/form_text_input.dart';
-import 'package:soa_jpt/src/core/utils/extensions.dart';
-import 'package:soa_jpt/src/data/models/dummy/model_dummy_barang.dart';
-import 'package:soa_jpt/src/data/models/request/request_save_checker.dart';
-import 'package:soa_jpt/src/data/models/response/scan/response_checker_detail.dart';
-import 'package:soa_jpt/src/data/models/response/scan/response_checker_so.dart';
-import 'package:soa_jpt/src/presentation/blocs/auth/auth_bloc.dart';
-import 'package:soa_jpt/src/presentation/blocs/scan/bloc/scan_barcode_bloc.dart';
-import 'package:soa_jpt/src/presentation/views/home/dashboard.dart';
-import 'package:soa_jpt/src/presentation/views/packing/packing_list_view.dart';
-import 'package:soa_jpt/src/presentation/views/scanner/scanner_error_widget.dart';
-import 'package:soa_jpt/src/presentation/widgets/text_field_widget.dart';
-import 'package:soa_jpt/src/presentation/widgets/text_widget.dart';
+import 'package:sulinda_sales/src/core/assets/assets.gen.dart';
+import 'package:sulinda_sales/src/core/config/constant.dart';
+import 'package:sulinda_sales/src/core/model/form_text_input.dart';
+import 'package:sulinda_sales/src/core/utils/extensions.dart';
+import 'package:sulinda_sales/src/data/models/dummy/model_dummy_barang.dart';
+import 'package:sulinda_sales/src/data/models/request/request_save_checker.dart';
+import 'package:sulinda_sales/src/data/models/response/scan/response_checker_detail.dart';
+import 'package:sulinda_sales/src/data/models/response/scan/response_checker_so.dart';
+import 'package:sulinda_sales/src/presentation/blocs/auth/auth_bloc.dart';
+import 'package:sulinda_sales/src/presentation/blocs/scan/bloc/scan_barcode_bloc.dart';
+import 'package:sulinda_sales/src/presentation/views/home/dashboard.dart';
+import 'package:sulinda_sales/src/presentation/views/packing/packing_list_view.dart';
+import 'package:sulinda_sales/src/presentation/views/scanner/scanner_error_widget.dart';
+import 'package:sulinda_sales/src/presentation/widgets/text_field_widget.dart';
+import 'package:sulinda_sales/src/presentation/widgets/text_widget.dart';
 
 class CheckerBarangView extends StatefulWidget {
   const CheckerBarangView(
@@ -531,7 +531,7 @@ class _CheckerBarangViewState extends State<CheckerBarangView> {
                                   widget.dataHeader.ekspedisioid.toString(),
                               orderno: widget.dataHeader.orderno.toString(),
                               trnordernote: widget.dataHeader.trnordernote,
-                              userid: userLogin!.userid,
+                              userid: userLogin!.userId.toString(),
                             );
 
                             List<JsonDtl> daftarJsonDtl = [];

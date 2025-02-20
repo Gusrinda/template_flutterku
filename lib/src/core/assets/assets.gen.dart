@@ -384,6 +384,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/4c64e475ffafa63815031a099d04f5e2.png
+  AssetGenImage get a4c64e475ffafa63815031a099d04f5e2 =>
+      const AssetGenImage('assets/images/4c64e475ffafa63815031a099d04f5e2.png');
+
   /// File path: assets/images/Login.png
   AssetGenImage get login => const AssetGenImage('assets/images/Login.png');
 
@@ -503,6 +507,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        a4c64e475ffafa63815031a099d04f5e2,
         login,
         whatsAppImage20230415At095731,
         addProduk,
@@ -637,12 +642,90 @@ class $AssetsMaterialGen {
       ];
 }
 
+class $AssetsSvgGen {
+  const $AssetsSvgGen();
+
+  /// File path: assets/svg/7938337_3812170.svg
+  String get a79383373812170 => 'assets/svg/7938337_3812170.svg';
+
+  /// File path: assets/svg/Bell_fill.svg
+  String get bellFill => 'assets/svg/Bell_fill.svg';
+
+  /// File path: assets/svg/Ellipse 147.svg
+  String get ellipse147 => 'assets/svg/Ellipse 147.svg';
+
+  /// File path: assets/svg/Login.svg
+  String get login => 'assets/svg/Login.svg';
+
+  /// File path: assets/svg/delete.svg
+  String get delete => 'assets/svg/delete.svg';
+
+  /// File path: assets/svg/document-svgrepo-com (1) 1.svg
+  String get documentSvgrepoCom11 =>
+      'assets/svg/document-svgrepo-com (1) 1.svg';
+
+  /// File path: assets/svg/home.svg
+  String get home => 'assets/svg/home.svg';
+
+  /// File path: assets/svg/invoice-svgrepo-com (2) 2.svg
+  String get invoiceSvgrepoCom22 => 'assets/svg/invoice-svgrepo-com (2) 2.svg';
+
+  /// File path: assets/svg/material-symbols-light_local-car-wash-outline-sharp.svg
+  String get materialSymbolsLightLocalCarWashOutlineSharp =>
+      'assets/svg/material-symbols-light_local-car-wash-outline-sharp.svg';
+
+  /// File path: assets/svg/mingcute_building-5-line.svg
+  String get mingcuteBuilding5Line => 'assets/svg/mingcute_building-5-line.svg';
+
+  /// File path: assets/svg/pim.svg
+  String get pim => 'assets/svg/pim.svg';
+
+  /// File path: assets/svg/pin-alt-svgrepo-com 1.svg
+  String get pinAltSvgrepoCom1 => 'assets/svg/pin-alt-svgrepo-com 1.svg';
+
+  /// File path: assets/svg/undraw_accept_request_re_d81h 1.svg
+  String get undrawAcceptRequestReD81h1 =>
+      'assets/svg/undraw_accept_request_re_d81h 1.svg';
+
+  /// File path: assets/svg/undraw_personalization_re_grty 1.svg
+  String get undrawPersonalizationReGrty1 =>
+      'assets/svg/undraw_personalization_re_grty 1.svg';
+
+  /// File path: assets/svg/user-add-svgrepo-com 1.svg
+  String get userAddSvgrepoCom1 => 'assets/svg/user-add-svgrepo-com 1.svg';
+
+  /// File path: assets/svg/user-rounded-svgrepo-com (1) 1.svg
+  String get userRoundedSvgrepoCom11 =>
+      'assets/svg/user-rounded-svgrepo-com (1) 1.svg';
+
+  /// List of all assets
+  List<String> get values => [
+        a79383373812170,
+        bellFill,
+        ellipse147,
+        login,
+        delete,
+        documentSvgrepoCom11,
+        home,
+        invoiceSvgrepoCom22,
+        materialSymbolsLightLocalCarWashOutlineSharp,
+        mingcuteBuilding5Line,
+        pim,
+        pinAltSvgrepoCom1,
+        undrawAcceptRequestReD81h1,
+        undrawPersonalizationReGrty1,
+        userAddSvgrepoCom1,
+        userRoundedSvgrepoCom11
+      ];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsMaterialGen material = $AssetsMaterialGen();
+  static const $AssetsSvgGen svg = $AssetsSvgGen();
 }
 
 class AssetGenImage {

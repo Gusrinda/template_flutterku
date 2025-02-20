@@ -1,13 +1,12 @@
-import 'package:soa_jpt/src/core/config/constant.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter/material.dart';
 
-import '../../core/config/theme_colors.dart';
+import 'package:flutter/material.dart';
+import 'package:sulinda_sales/src/core/config/theme_colors.dart';
 
 class GreenChip extends StatelessWidget {
-  const GreenChip(this.label, {super.key});
+  const GreenChip(this.label, {super.key, this.fontSize = 10});
 
   final String label;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +16,13 @@ class GreenChip extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       padding: const EdgeInsets.symmetric(
-        horizontal: 8,
+        horizontal: 12,
         vertical: 4,
       ),
       child: Text(
         label,
         style: TextStyle(
-          fontSize: 9.sp,
+          fontSize: fontSize,
           color: Theme.of(context).primaryColor,
         ),
       ),
@@ -31,26 +30,75 @@ class GreenChip extends StatelessWidget {
   }
 }
 
-class ColorChip extends StatelessWidget {
-  const ColorChip(this.label, {super.key, this.color = ThemeColors.red});
+class IconChip extends StatelessWidget {
+  const IconChip(this.label,
+      {super.key,
+      this.color = ThemeColors.red,
+      required this.icon,
+      this.iconSize,
+      this.textColor = Colors.white});
 
   final String label;
   final Color color;
+  final IconData icon;
+  final double? iconSize;
+  final Color? textColor;
+
+  @override
+  Widget build(BuildContext context) {
+    final iconWidget = Icon(icon, color: textColor, size: iconSize);
+
+    return Container(
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8,
+        vertical: 4,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          iconWidget,
+          SizedBox(
+            width: 6,
+          ),
+          Text(
+            label,
+            style:  TextStyle(fontSize: 10, color: textColor),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ColorChip extends StatelessWidget {
+  const ColorChip(this.label,
+      {super.key, this.color = ThemeColors.red, this.sizeFont = 9});
+
+  final String label;
+  final Color color;
+  final double? sizeFont;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: color,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       padding: const EdgeInsets.symmetric(
-        horizontal: 12,
-        vertical: 6,
+        horizontal: 8,
+        vertical: 4,
       ),
       child: Text(
         label,
-        style: TextStyle(fontSize: 9.sp, color: Colors.white),
+        style: TextStyle(
+            fontSize: sizeFont,
+            color: Colors.white,
+            fontWeight: sizeFont != 9 ? FontWeight.w600 : null),
       ),
     );
   }
@@ -74,36 +122,7 @@ class GreyChip extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: TextStyle(fontSize: 9.sp),
-      ),
-    );
-  }
-}
-
-class GreyOutlineChip extends StatelessWidget {
-  const GreyOutlineChip(this.label, {super.key});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 10),
-      height: 22,
-      width: 60,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          border: Border.all(color: Color(0xFF858585))),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 8,
-        vertical: 4,
-      ),
-      child: Center(
-        child: Text(
-          label,
-
-          style: TextStyle(fontSize: 9, color: Color(0xFF858585)),
-        ),
+        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
       ),
     );
   }
@@ -138,7 +157,7 @@ class FilterChips extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-          fontSize: 11.sp,
+          fontSize: 9,
           color: selected
               ? selectedTextColor ?? Theme.of(context).primaryColor
               : Theme.of(context).primaryColor,
@@ -169,7 +188,7 @@ class ActiveInActiveChip extends StatelessWidget {
       child: Text(
         active ? 'Aktif' : 'Kadaluarsa',
         style: TextStyle(
-          fontSize: 9.sp,
+          fontSize: 9,
           color: active ? ThemeColors.green : ThemeColors.red,
         ),
       ),

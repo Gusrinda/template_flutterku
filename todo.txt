@@ -1,0 +1,23 @@
+REVISI : 
+
+
+DONE : 
+-	Pengajuan customer baru, tambahn PIN location (default dari user check in)
+-	History SO tampilkan yg di APPS saja ()
+-	Gambar di katalog barang masih ada
+-   Nominal pendapan / omset masih muncul di dashboard user login padahal sudah di request tidak perlu dimunculin
+-	Tambah pop up input QTY dan harga di chart keranjang belanja (dari katalog)
+-	Tidak perlu harga di view barang
+-	Kurang tambah filter kategori/kelompok barang
+-	View barang kurang warna ( api belum ada )
+-	Tampilkan status di list history SO
+-	Kurang tambah tombol/ action POSTING
+1.	Catalog Barang untuk Liat Barang dan Stok  gak perlu gambar
+3.	Total Pendapatan Sales tidak perlu ditampilkan
+5.	SO Dapat di Save Dan Di posting (save masik bisa di edit, post gk bisa)
+9.  Gak perlu gambar barang, d catalog
+4.	Total SO yang Belum Diposting Secara Apps Boleh Ditampikan, Web gak perlu(karena untuk pemantauan di apps saja)
+8.  jam visiting plan gk perlu, cukup range tgl kunjungan, otomatis ada jam saat visit
+2.	Plan dan Unplan Kunjung
+6.	Piutangnya di munculkan drop down saat kunjungan ke customer tersebut, menghindari bisa d liat oleh cust lain
+7.	Laporan Kunjungan Marketing

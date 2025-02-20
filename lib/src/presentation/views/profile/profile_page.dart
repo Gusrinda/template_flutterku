@@ -1,9 +1,15 @@
-import 'package:soa_jpt/src/core/utils/dialogs.dart';
-import 'package:soa_jpt/src/presentation/blocs/auth/auth_bloc.dart';
+import 'package:sulinda_sales/src/core/assets/assets.gen.dart';
+import 'package:sulinda_sales/src/core/config/constant.dart';
+import 'package:sulinda_sales/src/core/utils/dialogs.dart';
+import 'package:sulinda_sales/src/presentation/blocs/auth/auth_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sulinda_sales/src/presentation/views/home/home_page.dart';
+import 'package:sulinda_sales/src/presentation/views/sales%20order/so_list_view.dart';
+import 'package:sulinda_sales/src/presentation/widgets/text_field_widget.dart';
+import 'package:sulinda_sales/src/presentation/widgets/text_widget.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -13,65 +19,218 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  bool isEdit = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const Expanded(flex: 2, child: _TopPortion()),
-          Expanded(
-            flex: 3,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
+      appBar: AppBar(
+        backgroundColor: themeHijauBg,
+        centerTitle: true,
+        title: Text("Profile"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: ListView(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: Stack(
                 children: [
-                  Text(
-                    "Nama Kamu",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium
-                        ?.copyWith(fontWeight: FontWeight.bold),
+                  CircleAvatar(
+                    radius: 42,
+                    backgroundImage: AssetImage(
+                      Assets.images.a4c64e475ffafa63815031a099d04f5e2.path,
+                    ), // Path ke gambar
                   ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FloatingActionButton.extended(
-                        onPressed: () {},
-                        heroTag: 'follow',
-                        elevation: 0,
-                        label: const Text("Follow"),
-                        icon: const Icon(Icons.person_add_alt_1),
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                      padding: EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
                       ),
-                      const SizedBox(width: 16.0),
-                      FloatingActionButton.extended(
-                        onPressed: () {},
-                        heroTag: 'mesage',
-                        elevation: 0,
-                        backgroundColor: Colors.red,
-                        label: const Text("Message"),
-                        icon: const Icon(Icons.message_rounded),
+                      child: Icon(
+                        Icons.camera_alt_outlined,
+                        size: 14,
+                        color: themeHijau,
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  const _ProfileInfoRow()
+                    ),
+                  )
                 ],
               ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 20),
-            child: FloatingActionButton.extended(
-              onPressed: () => handleLogOut(context),
-              heroTag: 'Logout',
-              elevation: 0,
-              backgroundColor: Colors.red,
-              label: const Text("LOGOUT"),
-              icon: const Icon(Icons.logout),
+            SizedBox(
+              height: 12,
             ),
+            Center(
+                child: Text(
+              "Reynaldi Sulaiman",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            )),
+            Center(
+                child: Text(
+              "Salesman",
+              style: TextStyle(
+                color: Colors.black,
+                // fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            )),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: HeaderLabel("Data Diri"),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                IconButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      setState(() {
+                        isEdit = true;
+                      });
+                    },
+                    icon: Icon(
+                      Icons.edit_document,
+                    )),
+              ],
+            ),
+            SubHeaderLabel("Nama Lengkap"),
+            SizedBox(
+              height: 4,
+            ),
+            FormzTextField(
+              enabled: isEdit,
+              textEditingController:
+                  TextEditingController(text: "Reynaldi Sulaiman"),
+              // trailing: IconButton(
+              //     onPressed: () {
+              //       setState(() {
+              //         isEdit = true;
+              //       });
+              //     },
+              //     icon: Icon(
+              //       Icons.edit_document,
+              //     )),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            SubHeaderLabel("No Telp"),
+            SizedBox(
+              height: 4,
+            ),
+            FormzTextField(
+              enabled: isEdit,
+              textEditingController:
+                  TextEditingController(text: "+628564571234"),
+              // trailing: IconButton(
+              //     onPressed: () {
+              //       setState(() {
+              //         isEdit = true;
+              //       });
+              //     },
+              //     icon: Icon(
+              //       Icons.edit_document,
+              //     )),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            SubHeaderLabel("Email"),
+            SizedBox(
+              height: 4,
+            ),
+            FormzTextField(
+              enabled: isEdit,
+              textEditingController:
+                  TextEditingController(text: "reynaldisulaiman@gmail.com"),
+              // trailing: IconButton(
+              //     onPressed: () {
+              //       setState(() {
+              //         isEdit = true;
+              //       });
+              //     },
+              //     icon: Icon(
+              //       Icons.edit_document,
+              //     )),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            SubHeaderLabel("Password"),
+            SizedBox(
+              height: 4,
+            ),
+            FormzTextField(
+              enabled: isEdit,
+              obscureText: true,
+              textEditingController: TextEditingController(text: "******"),
+              // trailing: IconButton(
+              //     onPressed: () {
+              //       setState(() {
+              //         isEdit = true;
+              //       });
+              //     },
+              //     icon: Icon(
+              //       Icons.edit_document,
+              //     )),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            if (isEdit) ...{
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    isEdit = false;
+                  });
+                },
+                style: ElevatedButton.styleFrom(backgroundColor: themeHijauBg),
+                child: Text(
+                  "Simpan Perubahan",
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w700),
+                ),
+              ),
+            }
+          ],
+        ),
+      ),
+      bottomNavigationBar: SafeArea(
+        minimum: EdgeInsets.only(
+          left: 20,
+          right: 20,
+          bottom: kBottomNavigationBarHeight,
+        ),
+        child: ElevatedButton(
+          onPressed: () => handleLogOut(context),
+          style: ElevatedButton.styleFrom(backgroundColor: Color(0xFFffdbdb)),
+          child: Text(
+            "Logout",
+            style: TextStyle(color: Colors.red, fontWeight: FontWeight.w700),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -84,114 +243,5 @@ class _ProfilePageState extends State<ProfilePage> {
     if (isYes == true) {
       bloc.add(const AuthenticationLogoutRequested());
     }
-  }
-}
-
-class _ProfileInfoRow extends StatelessWidget {
-  const _ProfileInfoRow({Key? key}) : super(key: key);
-
-  final List<ProfileInfoItem> _items = const [
-    ProfileInfoItem("Posts", 900),
-    ProfileInfoItem("Followers", 120),
-    ProfileInfoItem("Following", 200),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 80,
-      constraints: const BoxConstraints(maxWidth: 400),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: _items
-            .map((item) => Expanded(
-                    child: Row(
-                  children: [
-                    if (_items.indexOf(item) != 0) const VerticalDivider(),
-                    Expanded(child: _singleItem(context, item)),
-                  ],
-                )))
-            .toList(),
-      ),
-    );
-  }
-
-  Widget _singleItem(BuildContext context, ProfileInfoItem item) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              item.value.toString(),
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-            ),
-          ),
-          Text(
-            item.title,
-            style: Theme.of(context).textTheme.titleSmall,
-          )
-        ],
-      );
-}
-
-class ProfileInfoItem {
-  final String title;
-  final int value;
-  const ProfileInfoItem(this.title, this.value);
-}
-
-class _TopPortion extends StatelessWidget {
-  const _TopPortion({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        Container(
-          margin: const EdgeInsets.only(bottom: 50),
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [Color(0xff0043ba), Color(0xff006df1)]),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(50),
-                bottomRight: Radius.circular(50),
-              )),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: SizedBox(
-            width: 150,
-            height: 150,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  // child: Image.asset(image, height: 105, fit: BoxFit.cover),
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-                    height: 86,
-                    width: 100,
-                    fit: BoxFit.cover,
-                    progressIndicatorBuilder:
-                        (context, url, downloadProgress) =>
-                            CircularProgressIndicator(
-                                value: downloadProgress.progress),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        )
-      ],
-    );
   }
 }

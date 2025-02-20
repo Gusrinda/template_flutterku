@@ -1,7 +1,8 @@
-import 'package:soa_jpt/src/core/config/theme_colors.dart';
-import 'package:soa_jpt/src/core/settings/settings_controller.dart';
-import 'package:soa_jpt/src/presentation/views/auth/login_page.dart';
-import 'package:soa_jpt/src/presentation/views/home/dashboard.dart';
+import 'package:sulinda_sales/src/core/config/theme_colors.dart';
+import 'package:sulinda_sales/src/core/settings/settings_controller.dart';
+import 'package:sulinda_sales/src/presentation/blocs/general/bloc/general_bloc.dart';
+import 'package:sulinda_sales/src/presentation/views/auth/login_page.dart';
+import 'package:sulinda_sales/src/presentation/views/home/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -44,16 +45,16 @@ class _MyAppState extends State<MyApp> {
               appBarTheme: AppBarTheme(
                 elevation: 0,
                 color: Colors.white,
-                iconTheme: IconThemeData(color: Colors.black),
-                titleTextStyle: GoogleFonts.openSans(
+                iconTheme: IconThemeData(color: Colors.white),
+                titleTextStyle: GoogleFonts.poppins(
                     fontWeight: FontWeight.w700,
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 16.sp),
               ),
               elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
-                  backgroundColor: ThemeColors.backgroundTheme,
+                  backgroundColor: themeHijau,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   maximumSize: const Size(double.infinity, 48),
@@ -98,6 +99,18 @@ class _MyAppState extends State<MyApp> {
                         _listeningToAuthenticationStatus(
                             bloc, bloc.state.status);
                       });
+                      return bloc;
+                    },
+                  ),
+                  BlocProvider(
+                    create: (context) {
+                      AuthBloc? authBloc = context.read<AuthBloc>();
+
+                      final bloc = GeneralBloc(
+                        generalRepository: context.read(),
+                        tokenUser: authBloc.state.tokenUser ?? '',
+                      );
+
                       return bloc;
                     },
                   ),

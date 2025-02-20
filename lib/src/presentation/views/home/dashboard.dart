@@ -1,10 +1,16 @@
 import 'dart:async';
 
-import 'package:soa_jpt/main.dart';
-import 'package:soa_jpt/src/core/config/constant.dart';
-import 'package:soa_jpt/src/presentation/views/home/home_page.dart';
-import 'package:soa_jpt/src/presentation/views/materi/daftar_materi_view.dart';
-import 'package:soa_jpt/src/presentation/views/profile/profile_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sulinda_sales/main.dart';
+import 'package:sulinda_sales/src/core/config/constant.dart';
+import 'package:sulinda_sales/src/presentation/blocs/auth/auth_bloc.dart';
+import 'package:sulinda_sales/src/presentation/blocs/general/bloc/general_bloc.dart';
+import 'package:sulinda_sales/src/presentation/blocs/home/bloc/homepage_bloc.dart';
+import 'package:sulinda_sales/src/presentation/views/calendar/monthly_calendar_view.dart';
+import 'package:sulinda_sales/src/presentation/views/home/home_page.dart';
+import 'package:sulinda_sales/src/presentation/views/materi/daftar_materi_view.dart';
+import 'package:sulinda_sales/src/presentation/views/profile/profile_page.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -37,13 +43,20 @@ class _DashboardPageState extends State<DashboardPage> {
     }
   }
 
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
+
   @override
   void initState() {
     super.initState();
-
-    widget.page?.listen((event) {
-      isSelectedStream = event;
-      changePageDirectly(event);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.page?.listen((event) {
+        isSelectedStream = event;
+        changePageDirectly(event);
+      });
+      context.read<GeneralBloc>().add(FetchDataGeneral());
     });
   }
 
@@ -51,27 +64,28 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _body(),
-      // bottomNavigationBar: _bottomNavigationBar(),
+      bottomNavigationBar: _bottomNavigationBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: const _Fab(),
     );
   }
 
   Widget _body() {
+    final authBloc = context.read<AuthBloc>().state;
+
     return PageView(
       controller: pageController,
       physics: const NeverScrollableScrollPhysics(),
       children: [
-        HomePage(),
-        // DaftarMateriPage(),
-        // BlocProvider(
-        //   create: (context) {
-        //     return DeliveryOrderBloc(
-        //       orderRepository: context.read(),
-        //     );
-        //   },
-        //   child: ListKonfirmView(),
-        // ),
-        // HomePage(),
-        // ProfilePage(),
+        BlocProvider(
+          create: (context) => HomepageBloc(
+              userRepository: context.read(),
+              visiitngRepository: context.read(),
+              soRepository: context.read(),
+              tokenUser: authBloc.tokenUser ?? ''),
+          child: HomePage(),
+        ),
+        ProfilePage(),
       ],
     );
   }
@@ -85,7 +99,7 @@ class _DashboardPageState extends State<DashboardPage> {
       defaultSelected: isSelectedStream ?? 0,
       height: kToolbarHeight,
       backgroundColor: Colors.white,
-      selectedItemColor: themeOrange,
+      selectedItemColor: themeHijau,
       unselectedItemColor: ThemeColors.grey4,
       selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
       unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal),
@@ -94,19 +108,33 @@ class _DashboardPageState extends State<DashboardPage> {
           icon: Assets.material.home,
           text: "Home",
         ),
-        // CustomBottomAppBarItem(
-        //   icon: Assets.material.history,
-        //   text: "DAFTAR MATERI",
-        // ),
-        // CustomBottomAppBarItem(
-        //   icon: Assets.material.form,
-        //   text: "TEST",
-        // ),
         CustomBottomAppBarItem(
           icon: Assets.material.user,
           text: "Profile",
         ),
       ],
+    );
+  }
+}
+
+class _Fab extends StatelessWidget {
+  const _Fab({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.pushNamed(
+          context,
+          MonthlyCalendarView.routeName,
+        );
+      },
+      backgroundColor: Colors.white,
+      // foregroundColor: Colors.black12,
+      child: SvgPicture.asset(
+          Assets.svg.materialSymbolsLightLocalCarWashOutlineSharp),
     );
   }
 }

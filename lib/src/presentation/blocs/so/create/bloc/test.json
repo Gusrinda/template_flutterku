@@ -1,0 +1,94 @@
+{
+    "selectedWilayah": {
+        "Text": "DALAM KOTA",
+        "Value": "16"
+    },
+    "daftarCustomer": null,
+    "selectedCustomer": {
+        "m_cust_id": 52,
+        "m_cust_code": "JIGSKHAJAY",
+        "m_cust_name": "HEREPEN JEYE",
+        "m_cust_type": null,
+        "m_cust_grup_wilayah_id": 16,
+        "m_cust_grup_wilayah": "DALAM KOTA",
+        "m_custgrup_paydefault_id": 294,
+        "m_custgrup_jatuhtempo_id": 297,
+        "m_cust_active_flag": "ACTIVE",
+        "m_cust_npwp": "",
+        "m_cust_nik": "",
+        "m_cust_email": "",
+        "m_cust_name_alias": "HEREPEN JEYE",
+        "alamatCount": 0,
+        "m_cust_id_img_path": "",
+        "overdue_days": 0,
+        "overtime_days": 0,
+        "overdue_ar": 0
+    },
+    "tanggalCreateSO": "2024-11-29T00:00:00.000",
+    "selectedPPN": {
+        "value_pct": 0,
+        "plus_min": 0,
+        "Text": "-",
+        "Value": ""
+    },
+    "selectedPPH1": {
+        "value_pct": 0.0,
+        "plus_min": 1,
+        "Text": ".",
+        "Value": "0"
+    },
+    "selectedPPH2": {
+        "value_pct": 0.0,
+        "plus_min": 1,
+        "Text": ".",
+        "Value": "0"
+    },
+    "selectedTipeDiskon": "A",
+    "requestCreateSo": {
+        "t_so_h_id": null,
+        "t_so_h_grup_wilayah_id": 16,
+        "m_cust_id": 52,
+        "t_so_h_cust_namacetak": "string",
+        "t_so_h_cust_po_no": "string",
+        "t_so_h_cust_po_date": "2024-11-29T00:00:00",
+        "t_so_h_totalamt": 0.0,
+        "t_so_h_tipe_bykirim": "Per KG",
+        "t_so_h_total_bykirim": 0.0,
+        "t_so_h_disctype": "A",
+        "t_so_h_discpct": 0.0,
+        "t_so_h_discamt": 0.0,
+        "t_so_h_totaldpp": 0.0,
+        "t_so_h_taxtype": "",
+        "t_so_h_taxpct": 0.0,
+        "t_so_h_taxamt": 0.0,
+        "t_so_h_pph1_id": 0,
+        "t_so_h_pph1_pct": 0.0,
+        "t_so_h_pph1_amt": 0.0,
+        "t_so_h_pph2_id": 0,
+        "t_so_h_pph2_pct": 0.0,
+        "t_so_h_pph2_amt": 0.0,
+        "t_so_h_totalnetto": 1000.0,
+        "t_so_h_note": "string",
+        "t_so_d": [
+            {
+                "dataBarang": null,
+                "t_so_d_id": 2818,
+                "m_item_id": 3704,
+                "m_item_jenis": "BARANG",
+                "m_item_longdesc": "BESI AS  POLOS 96 117",
+                "m_item_code": "BAP96",
+                "qty_stock": 0,
+                "t_so_d_qty": 1,
+                "t_so_d_unit_id": 298,
+                "t_so_d_unit": "BTG",
+                "t_so_d_price": 100000,
+                "t_so_d_amt": 100000,
+                "t_so_d_bykirim": 0,
+                "t_so_d_note": "",
+                "m_item_konversi": 23,
+                "jt_flag": "",
+                "m_item_jto_khusus_id": 0
+            }
+        ]
+    }
+}

@@ -1,18 +1,33 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 final kMySqlDateFormat = DateFormat('yyyy-MM-dd', 'id_ID');
+final kMySqlDateFullFormat = DateFormat('yyyy-MM-dd hh:mm:ss', 'id_ID');
 final kShortDateFormat = DateFormat('dd/MM/yy', 'id_ID');
 final kFullDateFormat = DateFormat('dd/MM/yyyy', 'id_ID');
 final kDateShortMonthFormat = DateFormat('dd MMM yyyy', 'id_ID');
 final kDayFullDateFormat = DateFormat('EEEE, dd MMM yyyy', 'id_ID');
 final kDayFullDate2Format = DateFormat('EEEE, dd MMMM yyyy', 'id_ID');
 final kDateFullMonthFormat = DateFormat('dd MMMM yyyy', 'id_ID');
-
+final kDateForm = DateFormat('dd/MM/yyyy', 'id_ID');
+final kDateEventFormat = DateFormat('MM/dd/yyyy', 'id_ID');
 final kDateTimeFullMonthFormat = DateFormat('dd MMMM yyyy HH:mm', 'id_ID');
 final kDateTimeShortMonthFormat = DateFormat('dd/MM/yyyy HH:mm', 'id_ID');
 final kTimeFormat = DateFormat('HH:mm', 'id_ID');
 final kMinuteFormat = DateFormat('mm', 'id_ID');
+final kFormatTanggalAbsen = DateFormat('EEEE, dd/MM/yyyy', 'id_ID');
+
+String formatTimeOfDay(TimeOfDay time) {
+  final now = DateTime.now();
+  final selectedDateTime =
+      DateTime(now.year, now.month, now.day, time.hour, time.minute);
+  return DateFormat('HH:mm').format(selectedDateTime);
+}
+
+
+final kTimeSecondFormat = DateFormat('HH:mm:ss', 'id_ID');
+
 final kBalanceFormat = NumberFormat.currency(
   locale: 'id_ID',
   decimalDigits: 0,
@@ -21,7 +36,7 @@ final kBalanceFormat = NumberFormat.currency(
 final kRupiahFormat = NumberFormat.currency(
   locale: 'id_ID',
   decimalDigits: 0,
-  symbol: 'Rp',
+  symbol: 'Rp ',
 );
 
 class NumericTextFormatter extends TextInputFormatter {

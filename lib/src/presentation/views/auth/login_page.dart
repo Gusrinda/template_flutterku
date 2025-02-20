@@ -1,5 +1,5 @@
-import 'package:soa_jpt/src/core/utils/extensions.dart';
-import 'package:soa_jpt/src/data/models/response/login/response_login.dart';
+import 'package:sulinda_sales/src/core/utils/extensions.dart';
+import 'package:sulinda_sales/src/data/models/response/login/response_login.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,13 +56,13 @@ class _LoginPageState extends State<LoginPage> {
         if (state.status.isSubmissionSuccess) {
           ResponseLogin dataResponseLogin = state.loginUser!;
 
-          final tokenUser = "";
+          final tokenUser = "Bearer ${dataResponseLogin.data?.token}";
 
           print("TOKEN USER? ${tokenUser}");
 
           context.read<AuthBloc>().add(
                 AuthenticationStatusChanged(AuthenticationStatus.authenticated,
-                    dataResponseLogin.msgServer!.first, tokenUser),
+                    dataResponseLogin.data, tokenUser),
               );
         }
       },
@@ -85,37 +85,31 @@ class _LoginPageState extends State<LoginPage> {
               height: kToolbarHeight,
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Hero(
-                tag: Assets.icons.icon.keyName,
-                child: Assets.icons.icon.image(height: 100),
-              ),
-            ),
-            Center(
-              child: Text(
-                "Login",
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20.sp,
-                    color: themeFont),
-              ),
+                padding: const EdgeInsets.all(10.0),
+                child: SvgPicture.asset(Assets.svg.login)),
+            Text(
+              "Hi, Selamat Datang",
+              style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 20.sp,
+                  color: Colors.black),
             ),
             const SizedBox(
               height: 6,
             ),
-            Center(
-              child: Text(
-                "Masuk ke akun",
-                style: TextStyle(fontSize: 14.sp, color: themeFont),
-              ),
+            Text(
+              "Masuk untuk memulai aktivitas",
+              style: TextStyle(fontSize: 10.sp, color: themeFont),
             ),
-
+            const SizedBox(
+              height: 12,
+            ),
             const Hero(
               tag: 'Label-Email',
               flightShuttleBuilder: flightShuttleBuilder,
               child: FormTextLabel(
                 label: "Username",
-                labelColor: ThemeColors.navy6,
+                labelColor: themeHijau,
               ),
             ),
             const SizedBox(
@@ -131,34 +125,18 @@ class _LoginPageState extends State<LoginPage> {
               flightShuttleBuilder: flightShuttleBuilder,
               child: FormTextLabel(
                 label: "Password",
-                labelColor: ThemeColors.navy6,
+                labelColor: themeHijau,
               ),
             ),
             const SizedBox(
               height: 4,
             ),
-            // ignore: prefer_const_constructors
+
             _FormInputPassword(),
             const SizedBox(
               height: 10,
             ),
-            // Row(
-            //   // ignore: prefer_const_literals_to_create_immutables
-            //   children: [
-            //     const Spacer(),
-            //     GestureDetector(
-            //       // onTap: () => Navigator.pushNamed(
-            //       //     context, ForgetPasswordPage.routeName),
-            //       child: Text(
-            //         "Forget Password?",
-            //         style: TextStyle(
-            //             fontSize: 12.sp,
-            //             color: themeOrange,
-            //             decoration: TextDecoration.underline),
-            //       ),
-            //     ),
-            //   ],
-            // ),
+
             const SizedBox(
               height: 86,
             ),
@@ -170,9 +148,12 @@ class _LoginPageState extends State<LoginPage> {
                   return Ink(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     decoration: const BoxDecoration(
-                        color: themeNavy,
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
-                    child: const Center(child: CircularProgressIndicator()),
+                        color: themeHijau,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    child: const Center(child: CircularProgressIndicator(
+                      color: Colors.white,
+                      // value: 20,
+                    )),
                   );
                 }
 
@@ -183,8 +164,8 @@ class _LoginPageState extends State<LoginPage> {
                   child: Ink(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     decoration: const BoxDecoration(
-                        color: themeOrange,
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                        color: themeHijau,
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
                     child: const Center(
                       child: Text(
                         "Login",
@@ -200,34 +181,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(
               height: 20,
-            ),
-            // Hero(
-            //   tag: 'Form-Footer',
-            //   flightShuttleBuilder: flightShuttleBuilder,
-            //   child: Text.rich(
-            //     TextSpan(
-            //       children: [
-            //         TextSpan(text: "Belum punya akun ?  "),
-            //         TextSpan(
-            //           text: "Register",
-            //           style: const TextStyle(
-            //             color: themeOrange,
-            //             fontWeight: FontWeight.w500,
-            //           ),
-            //           recognizer: TapGestureRecognizer()
-            //             ..onTap = () {
-            //               // Navigator.pushNamed(context, RegisterPage.routeName);
-            //             },
-            //         ),
-            //       ],
-            //       style: TextStyle(fontSize: 12.sp),
-            //     ),
-            //     textAlign: TextAlign.center,
-            //   ),
-            // ),
-
-            SizedBox(
-              height: 30.sp,
             ),
           ],
         ),
@@ -270,7 +223,7 @@ class _FormInputPassword extends StatelessWidget {
                         child: SvgPicture.asset(
                           Assets.material.eye,
                           colorFilter:
-                              ColorFilter.mode(Colors.blue, BlendMode.srcIn),
+                              ColorFilter.mode(themeHijau, BlendMode.srcIn),
                         )),
                 onTap: () => context
                     .read<LoginBloc>()
